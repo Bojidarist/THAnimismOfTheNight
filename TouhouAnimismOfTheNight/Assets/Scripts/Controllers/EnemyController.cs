@@ -5,8 +5,19 @@ namespace TH.Controllers
 {
     public class EnemyController : MonoBehaviour
     {
+        /// <summary>
+        /// The <see cref="Rigidbody2D"/> of the enemy
+        /// </summary>
         private Rigidbody2D rb;
+
+        /// <summary>
+        /// The direction scalar used in the enemy movement
+        /// </summary>
         private int movementDirection = 1;
+
+        /// <summary>
+        /// The <see cref="ScreenBorderDetector"/>
+        /// </summary>
         private ScreenBorderDetector screenBorderDetector;
 
         // Start is called before the first frame update

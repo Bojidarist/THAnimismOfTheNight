@@ -13,6 +13,12 @@ namespace TH.Utilities
             SpawnEnemy(Vector3.zero, Quaternion.identity, EnemyType.SoriNoKanmushi);
         }
 
+        /// <summary>
+        /// Spawn a player character
+        /// </summary>
+        /// <param name="position">The spawn position of the player character</param>
+        /// <param name="rotation">The rotation of the player character</param>
+        /// <returns>The player <see cref="GameObject"/></returns>
         public static GameObject SpawnPlayer(Vector3 position, Quaternion rotation)
         {
             var prefab = Resources.Load<GameObject>(Config.SakuyaPrefabPath);
@@ -20,6 +26,13 @@ namespace TH.Utilities
             return prefab;
         }
 
+        /// <summary>
+        /// Spawn a enemy character
+        /// </summary>
+        /// <param name="position">The spawn position of the enemy character</param>
+        /// <param name="rotation">The rotation of the enemy character</param>
+        /// <param name="type">The type of the enemy character</param>
+        /// <returns>The enemy <see cref="GameObject"/></returns>
         public static GameObject SpawnEnemy(Vector3 position, Quaternion rotation, EnemyType type)
         {
             GameObject prefab = null;
