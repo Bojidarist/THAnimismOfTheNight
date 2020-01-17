@@ -35,7 +35,7 @@ namespace TH.Utilities
                     prefab = Resources.Load<GameObject>(Config.SoriNoKanmushiPrefabPath);
                     break;
             }
-            return Instantiate(prefab);
+            return Instantiate(prefab, position, Quaternion.identity);
         }
     }
 }
