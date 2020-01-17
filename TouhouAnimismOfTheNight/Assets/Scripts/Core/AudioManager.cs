@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace THCore
+namespace TH.Core
 {
     public class AudioManager : MonoBehaviour
     {
