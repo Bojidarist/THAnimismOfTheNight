@@ -9,18 +9,18 @@ namespace TH.Utilities
             // Test with spawning player
             // Make sure the methods are called from another place
             // like GameManager
-            SpawnPlayer(Vector3.zero);
-            SpawnEnemy(Vector3.zero, EnemyType.SoriNoKanmushi);
+            SpawnPlayer(Vector3.zero, Quaternion.identity);
+            SpawnEnemy(Vector3.zero, Quaternion.identity, EnemyType.SoriNoKanmushi);
         }
 
-        public static GameObject SpawnPlayer(Vector3 position)
+        public static GameObject SpawnPlayer(Vector3 position, Quaternion rotation)
         {
             var prefab = Resources.Load<GameObject>(Config.SakuyaPrefabPath);
-            prefab = Instantiate(prefab, position, Quaternion.identity);
+            prefab = Instantiate(prefab, position, rotation);
             return prefab;
         }
 
-        public static GameObject SpawnEnemy(Vector3 position, EnemyType type)
+        public static GameObject SpawnEnemy(Vector3 position, Quaternion rotation, EnemyType type)
         {
             GameObject prefab = null;
             switch (type)
@@ -35,7 +35,7 @@ namespace TH.Utilities
                     prefab = Resources.Load<GameObject>(Config.SoriNoKanmushiPrefabPath);
                     break;
             }
-            return Instantiate(prefab, position, Quaternion.identity);
+            return Instantiate(prefab, position, rotation);
         }
     }
 }
