@@ -12,6 +12,7 @@ namespace TH.Utilities
         public static float FocusHitboxSize = 0.1f;
         public static Vector2 FocusHitboxSize2D = new Vector2(FocusHitboxSize, FocusHitboxSize);
         public static float GenericEnemyMovementMultiplier = 1f;
+        public static float GenericBulletSpeedMultiplier = 1f;
 
         public static KeyCode FocusMovementKey = KeyCode.LeftShift;
 

@@ -21,6 +21,11 @@ namespace TH.Controllers
         /// </summary>
         private ScreenBorderDetector screenBorderDetector;
 
+        /// <summary>
+        /// The type of this enemy
+        /// </summary>
+        public EnemyType enemyType;
+
         // Start is called before the first frame update
         void Start()
         {

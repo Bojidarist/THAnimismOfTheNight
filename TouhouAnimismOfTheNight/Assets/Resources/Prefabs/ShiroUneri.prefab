@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4537455203002061903}
   - component: {fileID: -2825317922978278888}
   - component: {fileID: -6505414507016808266}
+  - component: {fileID: -8034227105997984078}
   m_Layer: 0
   m_Name: ShiroUneri
   m_TagString: Untagged
@@ -115,3 +116,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50dd5f016b9c5c4dae02d53663dee7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 1
+--- !u!114 &-8034227105997984078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551816032709194301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af5b366eccd0d943aaf9c0ec0072192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 4041280304199264361, guid: 3997b75d731991c47a42030ee84a0024, type: 3}
+  fireRate: 0.35

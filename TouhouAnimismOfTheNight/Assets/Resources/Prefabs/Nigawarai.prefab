@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4135409832925990198}
   - component: {fileID: -7132814476855771951}
   - component: {fileID: 4290225113670754466}
+  - component: {fileID: 4664366986614821991}
   m_Layer: 0
   m_Name: Nigawarai
   m_TagString: Untagged
@@ -115,3 +116,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50dd5f016b9c5c4dae02d53663dee7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
+--- !u!114 &4664366986614821991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205619839750371192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af5b366eccd0d943aaf9c0ec0072192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 4041280304199264361, guid: 3997b75d731991c47a42030ee84a0024, type: 3}
+  fireRate: 1
+  enemyController: {fileID: 0}

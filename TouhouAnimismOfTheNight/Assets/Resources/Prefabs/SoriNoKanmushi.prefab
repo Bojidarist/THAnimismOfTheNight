@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5623749545984142530}
   - component: {fileID: 1050536963675772748}
   - component: {fileID: -4479166711003669404}
+  - component: {fileID: 6763036919575288715}
   m_Layer: 0
   m_Name: SoriNoKanmushi
   m_TagString: Untagged
@@ -115,3 +116,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50dd5f016b9c5c4dae02d53663dee7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 2
+--- !u!114 &6763036919575288715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8897446964583265959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af5b366eccd0d943aaf9c0ec0072192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 4041280304199264361, guid: 3997b75d731991c47a42030ee84a0024, type: 3}
+  fireRate: 1
+  enemyController: {fileID: 0}

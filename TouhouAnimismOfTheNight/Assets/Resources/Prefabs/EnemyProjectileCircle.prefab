@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4041280304199264363}
   - component: {fileID: 4041280304199264362}
+  - component: {fileID: -7402482034586452867}
+  - component: {fileID: 4368379126282841933}
   m_Layer: 0
   m_Name: EnemyProjectileCircle
   m_TagString: Untagged
@@ -80,3 +82,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7402482034586452867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4041280304199264361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b1ef99b49d1d34eaaf7fbd24ff70bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: -180, y: 0}
+--- !u!50 &4368379126282841933
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4041280304199264361}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
