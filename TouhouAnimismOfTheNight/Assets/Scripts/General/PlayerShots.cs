@@ -1,23 +1,27 @@
-﻿using UnityEngine;
+﻿using TH.Controllers;
+using UnityEngine;
 
-public class PlayerShots : MonoBehaviour
+namespace TH
 {
-    public GameObject bullet;
-    public int numberOfBullets = 0;
-
-    public void Shoot()
+    public class PlayerShots : MonoBehaviour
     {
-        if (numberOfBullets > 0)
+        public GameObject bullet;
+        public int numberOfBullets = 0;
+
+        public void Shoot()
         {
-            SpawnBullet(new Vector2(180, 0));
-            numberOfBullets--;
+            if (numberOfBullets > 0)
+            {
+                SpawnBullet(new Vector2(180, 0));
+                numberOfBullets--;
+            }
         }
-    }
 
-    public void SpawnBullet(Vector2 direction)
-    {
-        var temp = Instantiate(bullet, transform.position, Quaternion.identity);
-        var bController = temp.GetComponent<PlayerBulletController>();
-        bController.direction = direction;
+        public void SpawnBullet(Vector2 direction)
+        {
+            var temp = Instantiate(bullet, transform.position, Quaternion.identity);
+            var bController = temp.GetComponent<PlayerBulletController>();
+            bController.direction = direction;
+        }
     }
 }
