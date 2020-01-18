@@ -43,6 +43,7 @@ namespace TH.Core
             if (SceneManager.GetActiveScene().name == SceneNames.MainScene && !isPaused)
             {
                 score += 10;
+                UIManager.Instance.UpdateScore(score);
             }
         }
 
@@ -52,6 +53,7 @@ namespace TH.Core
         public void PlayerDeath()
         {
             Debug.Log("The player died :(");
+            UIManager.Instance.HideScore();
             // Show some scoreboard UI
         }
 
@@ -61,6 +63,7 @@ namespace TH.Core
         public void PlayerSpawned()
         {
             score = 0;
+            UIManager.Instance.ShowScore();
         }
 
         /// <summary>
