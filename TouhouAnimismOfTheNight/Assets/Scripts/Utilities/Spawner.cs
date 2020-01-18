@@ -9,8 +9,8 @@ namespace TH.Utilities
             // Test with spawning player
             // Make sure the methods are called from another place
             // like GameManager
-            SpawnPlayer(Vector3.zero, Quaternion.identity);
-            SpawnEnemy(Vector3.zero, Quaternion.identity, EnemyType.SoriNoKanmushi);
+            SpawnPlayer(new Vector3(-2f, 0f), Quaternion.identity);
+            SpawnEnemy(new Vector3(2.5f, 0f), Quaternion.identity, EnemyType.SoriNoKanmushi);
         }
 
         /// <summary>

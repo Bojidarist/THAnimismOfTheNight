@@ -40,6 +40,8 @@ namespace TH.Controllers
             playerShooter = GetComponent<PlayerShots>();
             defaultColliderSize = collider.size;
             screenBorderDetector = FindObjectOfType<ScreenBorderDetector>();
+
+            GameManager.Instance.PlayerSpawned();
         }
 
         // Update is called once per frame
@@ -80,14 +82,18 @@ namespace TH.Controllers
         {
             if (collision.tag == "EnemyProjectile")
             {
-                GameManager.Instance.PlayerDeath();
-                //Destroy(this.gameObject);
+                Destroy(this.gameObject);
                 Destroy(collision.gameObject);
             }
             else if (collision.tag == "GraceProjectile")
             {
                 playerShooter.numberOfBullets++;
             }
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.Instance.PlayerDeath();
         }
     }
 }

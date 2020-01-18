@@ -16,6 +16,11 @@ namespace TH.Core
         /// </summary>
         public bool isPaused = false;
 
+        /// <summary>
+        /// The player's score
+        /// </summary>
+        public uint score = 0;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -28,12 +33,29 @@ namespace TH.Core
             }
         }
 
+        private void FixedUpdate()
+        {
+            if (SceneManager.GetActiveScene().name == SceneNames.MainScene && !isPaused)
+            {
+                score += 10;
+            }
+        }
+
         /// <summary>
         /// Handles the player's death
         /// </summary>
         public void PlayerDeath()
         {
             Debug.Log("The player died :(");
+            // Show some scoreboard UI
+        }
+
+        /// <summary>
+        /// Handles the variables when the player spawns
+        /// </summary>
+        public void PlayerSpawned()
+        {
+            score = 0;
         }
 
         /// <summary>
