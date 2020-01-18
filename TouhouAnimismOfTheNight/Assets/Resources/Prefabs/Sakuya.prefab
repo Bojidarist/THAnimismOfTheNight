@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 9199351746072301419}
   - component: {fileID: 9199351746072301418}
   - component: {fileID: 9199351746072301205}
+  - component: {fileID: -7677019269460075998}
   m_Layer: 0
   m_Name: Sakuya
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,3 +143,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec6e0ef11efa294faab948cec1f4e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7677019269460075998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199351746072301206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2262167f3ea50144a99297d16ea0d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3753857912479049279, guid: c10f7cb5f4b5c7d4aa3e1766c23c8ef7, type: 3}
+  numberOfBullets: 0

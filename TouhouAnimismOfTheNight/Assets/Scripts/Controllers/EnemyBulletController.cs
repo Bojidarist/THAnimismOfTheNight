@@ -7,6 +7,7 @@ public class EnemyBulletController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 position;
     private int sineShotOffset = 1;
+    private ScreenBorderDetector borderDetector;
 
     public Vector2 direction;
     [HideInInspector]
@@ -15,6 +16,7 @@ public class EnemyBulletController : MonoBehaviour
 
     private void Start()
     {
+        borderDetector = FindObjectOfType<ScreenBorderDetector>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -22,6 +24,16 @@ public class EnemyBulletController : MonoBehaviour
     {
         if (!GameManager.Instance.isPaused)
         {
+            float x = transform.position.x;
+            float y = transform.position.y;
+            float xl = borderDetector.leftBorder - 2f;
+            float xr = borderDetector.rightBorder + 2f;
+            float yu = borderDetector.upperBorder + 2f;
+            float yb = borderDetector.bottomBorder - 2f;
+            if (x > xr || x < xl || y < yb || y > yu)
+            {
+                Destroy(this.gameObject);
+            }
             switch (enemyType)
             {
                 case EnemyType.Nigawarai:

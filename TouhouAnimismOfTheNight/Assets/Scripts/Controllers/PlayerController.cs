@@ -26,12 +26,15 @@ namespace TH.Controllers
         /// </summary>
         private ScreenBorderDetector screenBorderDetector;
 
+        private PlayerShots playerShooter;
+
         // Start is called before the first frame update
         void Start()
         {
             // Initialize
             rb = GetComponent<Rigidbody2D>();
             collider = GetComponent<BoxCollider2D>();
+            playerShooter = GetComponent<PlayerShots>();
             defaultColliderSize = collider.size;
             screenBorderDetector = FindObjectOfType<ScreenBorderDetector>();
         }
@@ -45,6 +48,10 @@ namespace TH.Controllers
             }
             if (!GameManager.Instance.isPaused)
             {
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    playerShooter.Shoot();
+                }
                 // Handle movement
                 bool isFocusClicked = Input.GetKey(Config.FocusMovementKey);
                 float focusMovementMultiplier = isFocusClicked ? Config.FocusMovementMultiplier : 1f;
@@ -59,6 +66,16 @@ namespace TH.Controllers
                 clampedPosition.y = Mathf.Clamp(clampedPosition.y, screenBorderDetector.bottomBorder, screenBorderDetector.upperBorder);
 
                 rb.transform.position = clampedPosition;
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == "EnemyProjectile")
+            {
+                GameManager.Instance.PlayerDeath();
+                //Destroy(this.gameObject);
+                Destroy(collision.gameObject);
             }
         }
     }

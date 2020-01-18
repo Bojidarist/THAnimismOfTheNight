@@ -24,6 +24,11 @@ namespace TH.Core
             }
         }
 
+        public void PlayerDeath()
+        {
+            Debug.Log("The player died :(");
+        }
+
         public void ChangeScene(string scene)
         {
             SceneManager.LoadScene(scene);
