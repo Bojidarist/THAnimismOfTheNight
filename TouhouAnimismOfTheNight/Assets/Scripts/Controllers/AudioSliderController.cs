@@ -6,9 +6,15 @@ namespace TH.Controllers
 {
     public class AudioSliderController : MonoBehaviour
     {
+        /// <summary>
+        /// The slider this controller is responsible for
+        /// </summary>
         [SerializeField]
         public Slider slider;
 
+        /// <summary>
+        /// The type of audio this slider controls
+        /// </summary>
         [SerializeField]
         public SliderType sliderType;
 
@@ -32,6 +38,10 @@ namespace TH.Controllers
             }
         }
 
+        /// <summary>
+        /// Changes the global volume of the type of audio this slider controls
+        /// </summary>
+        /// <param name="value">The volume</param>
         public void ChangeVolume(float value)
         {
             switch (sliderType)

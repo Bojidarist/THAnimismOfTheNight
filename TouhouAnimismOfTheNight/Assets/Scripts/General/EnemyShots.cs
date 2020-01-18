@@ -7,10 +7,24 @@ namespace TH
 {
     public class EnemyShots : MonoBehaviour
     {
+        /// <summary>
+        /// The next time the enemy will fire
+        /// </summary>
         private float nextFire;
 
+        /// <summary>
+        /// The bullet <see cref="GameManager"/>
+        /// </summary>
         public GameObject bullet;
+
+        /// <summary>
+        /// The rate of fire
+        /// </summary>
         public float fireRate;
+
+        /// <summary>
+        /// The <see cref="EnemyController"/> that is shooting
+        /// </summary>
         private EnemyController enemyController;
 
         private void Start()
@@ -43,6 +57,9 @@ namespace TH
             }
         }
 
+        /// <summary>
+        /// Fires shotgun pattern
+        /// </summary>
         public void ShotgunPattern()
         {
             SpawnBullet(new Vector2(-180, 0));
@@ -51,6 +68,10 @@ namespace TH
             SpawnBullet(new Vector2(-180, -35));
         }
 
+        /// <summary>
+        /// Spawns a bullet
+        /// </summary>
+        /// <param name="direction">The direction of the bullet</param>
         public void SpawnBullet(Vector2 direction)
         {
             var temp = Instantiate(bullet, transform.position, Quaternion.identity);

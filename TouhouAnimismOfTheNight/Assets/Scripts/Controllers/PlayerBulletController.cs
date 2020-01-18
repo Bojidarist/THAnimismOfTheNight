@@ -6,9 +6,19 @@ namespace TH.Controllers
 {
     public class PlayerBulletController : MonoBehaviour
     {
+        /// <summary>
+        /// The bullet's <see cref="Rigidbody2D"/>
+        /// </summary>
         private Rigidbody2D rb;
+
+        /// <summary>
+        /// The bullet's latest position
+        /// </summary>
         private Vector3 position;
 
+        /// <summary>
+        /// The bullet's direction
+        /// </summary>
         public Vector2 direction;
 
         private void Start()

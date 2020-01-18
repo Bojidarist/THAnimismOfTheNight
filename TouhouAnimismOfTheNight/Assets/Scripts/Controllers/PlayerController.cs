@@ -26,6 +26,9 @@ namespace TH.Controllers
         /// </summary>
         private ScreenBorderDetector screenBorderDetector;
 
+        /// <summary>
+        /// Controls the player's shooting ability
+        /// </summary>
         private PlayerShots playerShooter;
 
         // Start is called before the first frame update

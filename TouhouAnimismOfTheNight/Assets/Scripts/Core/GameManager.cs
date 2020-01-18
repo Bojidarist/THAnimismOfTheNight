@@ -11,6 +11,9 @@ namespace TH.Core
         /// </summary>
         public static GameManager Instance { get; set; }
 
+        /// <summary>
+        /// Indicates if the game is paused
+        /// </summary>
         public bool isPaused = false;
 
         private void Awake()
@@ -25,36 +28,55 @@ namespace TH.Core
             }
         }
 
+        /// <summary>
+        /// Handles the player's death
+        /// </summary>
         public void PlayerDeath()
         {
             Debug.Log("The player died :(");
         }
 
+        /// <summary>
+        /// Changes the current scene
+        /// </summary>
+        /// <param name="scene">The new scene</param>
         public void ChangeScene(string scene)
         {
             SceneManager.LoadScene(scene);
         }
 
+        /// <summary>
+        /// Handles game pause
+        /// </summary>
         public void PauseGame()
         {
             isPaused = !isPaused;
             UIManager.Instance.ShowPauseMenu();
         }
 
+        /// <summary>
+        /// Handles exiting the game
+        /// </summary>
         public void ExitGame()
         {
             Application.Quit();
         }
 
-        public bool IsOutOfBoundsCheck(Vector3 position)
+        /// <summary>
+        /// Checks if the position is out of bounds
+        /// </summary>
+        /// <param name="position">The position to check</param>
+        /// <param name="offset">The offset after the end of the screen</param>
+        /// <returns>If the position is out of bounds</returns>
+        public bool IsOutOfBoundsCheck(Vector3 position, float offset = 2f)
         {
             var borderDetector = FindObjectOfType<ScreenBorderDetector>();
             float x = position.x;
             float y = position.y;
-            float xl = borderDetector.leftBorder - 2f;
-            float xr = borderDetector.rightBorder + 2f;
-            float yu = borderDetector.upperBorder + 2f;
-            float yb = borderDetector.bottomBorder - 2f;
+            float xl = borderDetector.leftBorder - offset;
+            float xr = borderDetector.rightBorder + offset;
+            float yu = borderDetector.upperBorder + offset;
+            float yb = borderDetector.bottomBorder - offset;
 
             return x > xr || x < xl || y < yb || y > yu;
         }
