@@ -1,4 +1,5 @@
-﻿using TH.Utilities;
+﻿using TH.Core;
+using TH.Utilities;
 using UnityEngine;
 
 namespace TH.Controllers
@@ -31,19 +32,22 @@ namespace TH.Controllers
         // Update is called once per frame
         void Update()
         {
-            Vector3 clampedPosition = rb.transform.position;
-            if (clampedPosition.y == screenBorderDetector.upperBorder)
+            if (!GameManager.Instance.isPaused)
             {
-                movementDirection = -1;
+                Vector3 clampedPosition = rb.transform.position;
+                if (clampedPosition.y == screenBorderDetector.upperBorder)
+                {
+                    movementDirection = -1;
+                }
+                else if (clampedPosition.y == screenBorderDetector.bottomBorder)
+                {
+                    movementDirection = 1;
+                }
+                clampedPosition.y = Mathf.Clamp(clampedPosition.y + movementDirection *
+                    Config.GenericEnemyMovementMultiplier * Time.deltaTime,
+                    screenBorderDetector.bottomBorder, screenBorderDetector.upperBorder);
+                rb.transform.position = clampedPosition;
             }
-            else if (clampedPosition.y == screenBorderDetector.bottomBorder)
-            {
-                movementDirection = 1;
-            }
-            clampedPosition.y = Mathf.Clamp(clampedPosition.y + movementDirection *
-                Config.GenericEnemyMovementMultiplier * Time.deltaTime,
-                screenBorderDetector.bottomBorder, screenBorderDetector.upperBorder);
-            rb.transform.position = clampedPosition;
         }
     }
 }

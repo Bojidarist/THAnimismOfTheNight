@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TH.Core;
+using UnityEngine;
 
 public class MoveBackground : MonoBehaviour
 {
@@ -16,14 +17,17 @@ public class MoveBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = transform.position.x;
-        x += speed * Time.deltaTime;
-        transform.position = new Vector3(x, transform.position.y, transform.position.z);
-
-        if (x <= PontoDeDestino)
+        if (!GameManager.Instance.isPaused)
         {
-            x = PontoOriginal;
+            x = transform.position.x;
+            x += speed * Time.deltaTime;
             transform.position = new Vector3(x, transform.position.y, transform.position.z);
+
+            if (x <= PontoDeDestino)
+            {
+                x = PontoOriginal;
+                transform.position = new Vector3(x, transform.position.y, transform.position.z);
+            }
         }
     }
 }

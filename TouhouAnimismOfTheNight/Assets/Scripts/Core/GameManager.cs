@@ -10,6 +10,8 @@ namespace TH.Core
         /// </summary>
         public static GameManager Instance { get; set; }
 
+        public bool isPaused = false;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -25,6 +27,11 @@ namespace TH.Core
         public void ChangeScene(string scene)
         {
             SceneManager.LoadScene(scene);
+        }
+
+        public void PauseGame()
+        {
+            isPaused = !isPaused;
         }
 
         public void ExitGame()

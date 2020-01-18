@@ -1,4 +1,5 @@
-﻿using TH.Utilities;
+﻿using TH.Core;
+using TH.Utilities;
 using UnityEngine;
 
 namespace TH.Controllers
@@ -38,20 +39,27 @@ namespace TH.Controllers
         // Update is called once per frame
         void Update()
         {
-            // Handle movement
-            bool isFocusClicked = Input.GetKey(Config.FocusMovementKey);
-            float focusMovementMultiplier = isFocusClicked ? Config.FocusMovementMultiplier : 1f;
-            collider.size = isFocusClicked ? Config.FocusHitboxSize2D : defaultColliderSize;
-            float horizontalMovement = Input.GetAxis("Horizontal") * Config.GenericMovementMultiplier * focusMovementMultiplier;
-            float verticalMovement = Input.GetAxis("Vertical") * Config.GenericMovementMultiplier * focusMovementMultiplier;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GameManager.Instance.PauseGame();
+            }
+            if (!GameManager.Instance.isPaused)
+            {
+                // Handle movement
+                bool isFocusClicked = Input.GetKey(Config.FocusMovementKey);
+                float focusMovementMultiplier = isFocusClicked ? Config.FocusMovementMultiplier : 1f;
+                collider.size = isFocusClicked ? Config.FocusHitboxSize2D : defaultColliderSize;
+                float horizontalMovement = Input.GetAxis("Horizontal") * Config.GenericMovementMultiplier * focusMovementMultiplier;
+                float verticalMovement = Input.GetAxis("Vertical") * Config.GenericMovementMultiplier * focusMovementMultiplier;
 
-            // Clamp the player's position so they do not go off-screen
-            Vector3 clampedPosition = rb.transform.position;
-            clampedPosition += new Vector3(horizontalMovement * Time.deltaTime, verticalMovement * Time.deltaTime);
-            clampedPosition.x = Mathf.Clamp(clampedPosition.x, screenBorderDetector.leftBorder, screenBorderDetector.rightBorder);
-            clampedPosition.y = Mathf.Clamp(clampedPosition.y, screenBorderDetector.bottomBorder, screenBorderDetector.upperBorder);
+                // Clamp the player's position so they do not go off-screen
+                Vector3 clampedPosition = rb.transform.position;
+                clampedPosition += new Vector3(horizontalMovement * Time.deltaTime, verticalMovement * Time.deltaTime);
+                clampedPosition.x = Mathf.Clamp(clampedPosition.x, screenBorderDetector.leftBorder, screenBorderDetector.rightBorder);
+                clampedPosition.y = Mathf.Clamp(clampedPosition.y, screenBorderDetector.bottomBorder, screenBorderDetector.upperBorder);
 
-            rb.transform.position = clampedPosition;
+                rb.transform.position = clampedPosition;
+            }
         }
     }
 }
