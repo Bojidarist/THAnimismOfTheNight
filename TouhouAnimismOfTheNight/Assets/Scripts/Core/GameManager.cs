@@ -33,6 +33,11 @@ namespace TH.Core
             }
         }
 
+        private void Start()
+        {
+            AudioManager.Instance.PlayBackgroundMusic();
+        }
+
         private void FixedUpdate()
         {
             if (SceneManager.GetActiveScene().name == SceneNames.MainScene && !isPaused)

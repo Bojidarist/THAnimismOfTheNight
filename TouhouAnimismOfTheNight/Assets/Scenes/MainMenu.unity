@@ -476,6 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
+  score: 0
 --- !u!1 &385694347
 GameObject:
   m_ObjectHideFlags: 0

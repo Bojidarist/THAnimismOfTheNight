@@ -1,4 +1,5 @@
 ﻿using TH.Controllers;
+using TH.Core;
 using UnityEngine;
 
 namespace TH
@@ -29,6 +30,7 @@ namespace TH
             {
                 SpawnBullet(new Vector2(180, 0));
                 numberOfBullets--;
+                AudioManager.Instance.PlayPlayerFireFX();
             }
         }
 
