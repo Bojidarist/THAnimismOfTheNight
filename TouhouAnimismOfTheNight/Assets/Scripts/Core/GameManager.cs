@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TH.Core
 {
@@ -19,6 +20,16 @@ namespace TH.Core
             {
                 Instance = this;
             }
+        }
+
+        public void ChangeScene(string scene)
+        {
+            SceneManager.LoadScene(scene);
+        }
+
+        public void ExitGame()
+        {
+            Application.Quit();
         }
     }
 }
