@@ -6,7 +6,7 @@ namespace TH.Utilities
     public struct Config
     {
         public static float SFXVolume = 0.2f;
-        public static float MusicVolume = 1f;
+        public static float MusicVolume = 0.8f;
         public static float GenericMovementMultiplier = 4f;
         public static float FocusMovementMultiplier = 0.2f;
         public static float FocusHitboxSize = 0.1f;

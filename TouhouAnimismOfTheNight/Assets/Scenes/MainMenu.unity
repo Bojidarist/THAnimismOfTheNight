@@ -280,7 +280,6 @@ GameObject:
   m_Component:
   - component: {fileID: 380285986}
   - component: {fileID: 380285988}
-  - component: {fileID: 380285987}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -302,18 +301,6 @@ Transform:
   m_Father: {fileID: 1816244482}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &380285987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380285985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20a9412b8e14e040a5caa2d7840aadf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &380285988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +323,6 @@ GameObject:
   m_Component:
   - component: {fileID: 385694348}
   - component: {fileID: 385694350}
-  - component: {fileID: 385694349}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -358,18 +344,6 @@ Transform:
   m_Father: {fileID: 1816244482}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &385694349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385694347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20a9412b8e14e040a5caa2d7840aadf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &385694350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +661,6 @@ GameObject:
   - component: {fileID: 664948350}
   - component: {fileID: 664948349}
   - component: {fileID: 664948348}
-  - component: {fileID: 664948352}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -776,18 +749,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &664948352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664948347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20a9412b8e14e040a5caa2d7840aadf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &684875906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1149,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1046907618}
   - component: {fileID: 1046907620}
-  - component: {fileID: 1046907619}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1210,18 +1170,6 @@ Transform:
   m_Father: {fileID: 1816244482}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1046907619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046907617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20a9412b8e14e040a5caa2d7840aadf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1046907620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,7 +1277,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1373684769}
   - component: {fileID: 1373684771}
-  - component: {fileID: 1373684770}
   m_Layer: 0
   m_Name: SceneChanger
   m_TagString: Untagged
@@ -1351,18 +1298,6 @@ Transform:
   m_Father: {fileID: 1816244482}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1373684770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373684768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20a9412b8e14e040a5caa2d7840aadf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1373684771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1421,6 +1356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1433713000}
   - component: {fileID: 1433713001}
+  - component: {fileID: 1433713002}
   m_Layer: 5
   m_Name: SFXVolumeSlider
   m_TagString: Untagged
@@ -1500,6 +1436,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1433713002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433712999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6869383c74a04a44ea2cdcf6e96ab5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1433713001}
+  sliderType: 1
 --- !u!1 &1464734256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,6 +2064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1777248791}
   - component: {fileID: 1777248792}
+  - component: {fileID: 1777248793}
   m_Layer: 5
   m_Name: MusicVolumeSlider
   m_TagString: Untagged
@@ -2193,6 +2144,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1777248793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777248790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6869383c74a04a44ea2cdcf6e96ab5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1777248792}
+  sliderType: 0
 --- !u!1 &1816244480
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,7 +2167,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1816244482}
-  - component: {fileID: 1816244481}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2210,18 +2174,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1816244481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816244480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20a9412b8e14e040a5caa2d7840aadf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1816244482
 Transform:
   m_ObjectHideFlags: 0
