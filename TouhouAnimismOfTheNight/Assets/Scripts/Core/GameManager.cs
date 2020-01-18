@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TH.Utilities;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace TH.Core
@@ -43,6 +44,19 @@ namespace TH.Core
         public void ExitGame()
         {
             Application.Quit();
+        }
+
+        public bool IsOutOfBoundsCheck(Vector3 position)
+        {
+            var borderDetector = FindObjectOfType<ScreenBorderDetector>();
+            float x = position.x;
+            float y = position.y;
+            float xl = borderDetector.leftBorder - 2f;
+            float xr = borderDetector.rightBorder + 2f;
+            float yu = borderDetector.upperBorder + 2f;
+            float yb = borderDetector.bottomBorder - 2f;
+
+            return x > xr || x < xl || y < yb || y > yu;
         }
     }
 }

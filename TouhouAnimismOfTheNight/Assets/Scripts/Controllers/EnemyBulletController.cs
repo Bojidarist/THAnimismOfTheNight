@@ -26,13 +26,7 @@ namespace TH.Controllers
         {
             if (!GameManager.Instance.isPaused)
             {
-                float x = transform.position.x;
-                float y = transform.position.y;
-                float xl = borderDetector.leftBorder - 2f;
-                float xr = borderDetector.rightBorder + 2f;
-                float yu = borderDetector.upperBorder + 2f;
-                float yb = borderDetector.bottomBorder - 2f;
-                if (x > xr || x < xl || y < yb || y > yu)
+                if (GameManager.Instance.IsOutOfBoundsCheck(transform.position))
                 {
                     Destroy(this.gameObject);
                 }
