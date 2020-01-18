@@ -80,6 +80,10 @@ namespace TH.Controllers
                 //Destroy(this.gameObject);
                 Destroy(collision.gameObject);
             }
+            else if (collision.tag == "GraceProjectile")
+            {
+                playerShooter.numberOfBullets++;
+            }
         }
     }
 }
