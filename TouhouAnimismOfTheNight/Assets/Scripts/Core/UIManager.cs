@@ -15,6 +15,9 @@ namespace TH.Core
         [SerializeField]
         public GameObject optionsMenu;
 
+        [SerializeField]
+        public GameObject pauseMenu;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -32,13 +35,20 @@ namespace TH.Core
         public void ShowMainMenu()
         {
             HideOptionsMenu();
+            HidePauseMenu();
             mainMenu.SetActive(true);
         }
 
         public void ShowOptionsMenu()
         {
             HideMainMenu();
+            HidePauseMenu();
             optionsMenu.SetActive(true);
+        }
+
+        public void ShowPauseMenu()
+        {
+            pauseMenu.SetActive(GameManager.Instance.isPaused);
         }
 
         #endregion
@@ -53,6 +63,11 @@ namespace TH.Core
         public void HideOptionsMenu()
         {
             optionsMenu.SetActive(false);
+        }
+
+        public void HidePauseMenu()
+        {
+            pauseMenu.SetActive(false);
         }
 
         #endregion

@@ -32,6 +32,7 @@ namespace TH.Core
         public void PauseGame()
         {
             isPaused = !isPaused;
+            UIManager.Instance.ShowPauseMenu();
         }
 
         public void ExitGame()
