@@ -55,6 +55,10 @@ namespace TH.Controllers
                 {
                     playerShooter.Shoot();
                 }
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    playerShooter.Bomb();
+                }
                 // Handle movement
                 bool isFocusClicked = Input.GetKey(Config.FocusMovementKey);
                 float focusMovementMultiplier = isFocusClicked ? Config.FocusMovementMultiplier : 1f;

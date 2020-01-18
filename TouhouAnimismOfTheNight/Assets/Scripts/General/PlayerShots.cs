@@ -16,6 +16,11 @@ namespace TH
         public int numberOfBullets = 0;
 
         /// <summary>
+        /// The current number of bombs the player has
+        /// </summary>
+        public int numberOfBombs = 3;
+
+        /// <summary>
         /// Shoots a bullet
         /// </summary>
         public void Shoot()
@@ -24,6 +29,22 @@ namespace TH
             {
                 SpawnBullet(new Vector2(180, 0));
                 numberOfBullets--;
+            }
+        }
+
+        /// <summary>
+        /// Removes all enemy projectiles from the screen
+        /// </summary>
+        public void Bomb()
+        {
+            if (numberOfBombs > 0)
+            {
+                var bullets = FindObjectsOfType<EnemyBulletController>();
+                foreach (var bullet in bullets)
+                {
+                    Destroy(bullet.gameObject);
+                }
+                numberOfBombs--;
             }
         }
 
