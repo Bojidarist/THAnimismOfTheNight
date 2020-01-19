@@ -72,7 +72,7 @@ namespace TH.Core
         /// Shows the death screen
         /// </summary>
         /// <param name="score">The score displayed on the death screen</param>
-        public void ShowDeathMenu(uint score)
+        public void ShowDeathMenu(ulong score)
         {
             youDiedScore.text = $"Score: { score }";
             youDiedMenu.SetActive(true);
@@ -158,7 +158,7 @@ namespace TH.Core
         /// Updates the score's text
         /// </summary>
         /// <param name="score">The new score</param>
-        public void UpdateScore(uint score)
+        public void UpdateScore(ulong score)
         {
             scoreText.text = $"Score: { score }";
         }

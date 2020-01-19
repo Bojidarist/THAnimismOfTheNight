@@ -19,7 +19,7 @@ namespace TH.Core
         /// <summary>
         /// The player's score
         /// </summary>
-        public uint score = 0;
+        public ulong score = 0;
 
         private void Awake()
         {

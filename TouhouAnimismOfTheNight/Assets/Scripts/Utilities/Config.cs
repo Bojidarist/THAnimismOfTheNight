@@ -15,6 +15,9 @@ namespace TH.Utilities
         public static float GenericBulletSpeedMultiplier = 1f;
 
         public static KeyCode FocusMovementKey = KeyCode.LeftShift;
+        public static KeyCode PlayerShootKey = KeyCode.Z;
+        public static KeyCode PlayerBombKey = KeyCode.X;
+        public static KeyCode PauseKey = KeyCode.Escape;
 
         public static string PrefabsPath = "Prefabs";
         public static string SakuyaPrefabPath = Path.Combine(PrefabsPath, "Sakuya");

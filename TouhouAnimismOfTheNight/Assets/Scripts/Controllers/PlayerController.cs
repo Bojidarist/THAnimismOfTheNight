@@ -47,17 +47,17 @@ namespace TH.Controllers
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(Config.PauseKey))
             {
                 GameManager.Instance.PauseGame();
             }
             if (!GameManager.Instance.isPaused)
             {
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(Config.PlayerShootKey))
                 {
                     playerShooter.Shoot();
                 }
-                if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetKeyDown(Config.PlayerBombKey))
                 {
                     playerShooter.Bomb();
                 }
