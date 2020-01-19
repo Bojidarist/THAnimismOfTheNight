@@ -16,6 +16,8 @@ namespace TH.Utilities
         public static float GenericBulletSpeedMultiplier = 1f;
         public static float PlayerXOffsetFromRightBorder = 1f;
         public static float EnemyXOffsetFromRightBorder = 0.5f;
+        public static float TimeBetweenWave = 90f;
+        public static int EnemyLimit = 10;
 
         public static KeyCode FocusMovementKey = KeyCode.LeftShift;
         public static KeyCode PlayerShootKey = KeyCode.Z;

@@ -14,7 +14,6 @@ public class MoveBackground : MonoBehaviour
         //PontoOriginal = transform.position.x;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!GameManager.Instance.isPaused)

@@ -1,4 +1,5 @@
-﻿using TH.Utilities;
+﻿using TH.Controllers;
+using TH.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -54,6 +55,7 @@ namespace TH.Core
         {
             UIManager.Instance.HideScore();
             UIManager.Instance.ShowDeathMenu(score);
+            FindObjectOfType<PlayerController>().gameObject.SetActive(false);
         }
 
         /// <summary>

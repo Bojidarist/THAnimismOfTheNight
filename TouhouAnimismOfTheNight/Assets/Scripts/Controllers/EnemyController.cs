@@ -26,7 +26,6 @@ namespace TH.Controllers
         /// </summary>
         public EnemyType enemyType;
 
-        // Start is called before the first frame update
         void Start()
         {
             // Initialize
@@ -34,7 +33,6 @@ namespace TH.Controllers
             screenBorderDetector = FindObjectOfType<ScreenBorderDetector>();
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (!GameManager.Instance.isPaused)

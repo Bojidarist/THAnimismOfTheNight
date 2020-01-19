@@ -4,16 +4,6 @@ namespace TH.Utilities
 {
     public class Spawner : MonoBehaviour
     {
-        private void Start()
-        {
-            // Test with spawning player
-            // Make sure the methods are called from another place
-            // like GameManager
-            SpawnPlayer(new Vector3(-2f, 0f), Quaternion.identity);
-            // Bad code (soon to be removed)
-            SpawnEnemy(new Vector3(FindObjectOfType<ScreenBorderDetector>().rightBorder - Config.EnemyXOffsetFromRightBorder, 0f), Quaternion.identity, EnemyType.SoriNoKanmushi);
-        }
-
         /// <summary>
         /// Spawn a player character
         /// </summary>

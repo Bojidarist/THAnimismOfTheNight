@@ -31,7 +31,6 @@ namespace TH.Controllers
         /// </summary>
         private PlayerShots playerShooter;
 
-        // Start is called before the first frame update
         void Start()
         {
             // Initialize
@@ -44,7 +43,6 @@ namespace TH.Controllers
             GameManager.Instance.PlayerSpawned();
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (Input.GetKeyDown(Config.PauseKey))
@@ -82,18 +80,13 @@ namespace TH.Controllers
         {
             if (collision.tag == "EnemyProjectile")
             {
-                Destroy(this.gameObject);
+                GameManager.Instance.PlayerDeath();
                 Destroy(collision.gameObject);
             }
             else if (collision.tag == "GraceProjectile")
             {
                 playerShooter.numberOfBullets++;
             }
-        }
-
-        private void OnDestroy()
-        {
-            GameManager.Instance.PlayerDeath();
         }
     }
 }
