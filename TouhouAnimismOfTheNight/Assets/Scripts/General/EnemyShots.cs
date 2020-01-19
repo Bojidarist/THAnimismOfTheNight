@@ -47,7 +47,7 @@ namespace TH
                     int rng = Random.Range(0, 2);
                     if (rng == 0)
                     {
-                        ShotgunPattern();
+                        StartCoroutine("ShotgunPattern");
                     }
                     else
                     {

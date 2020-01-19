@@ -99,7 +99,7 @@ namespace TH.Core
         /// <param name="position">The position to check</param>
         /// <param name="offset">The offset after the end of the screen</param>
         /// <returns>If the position is out of bounds</returns>
-        public bool IsOutOfBoundsCheck(Vector3 position, float offset = 2f)
+        public bool IsOutOfBoundsCheck(Vector3 position, float offset = 0.1f)
         {
             var borderDetector = FindObjectOfType<ScreenBorderDetector>();
             float x = position.x;

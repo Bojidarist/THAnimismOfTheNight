@@ -8,8 +8,9 @@ namespace TH.Core
     {
         private ScreenBorderDetector borderDetector;
         private Waiter waiter;
-        private int wave = 1;
+        public int wave = 1;
         private bool isNextWave = true;
+        private bool shouldDestroy = false;
         private List<GameObject> enemies;
         private float playerSpawnX;
         private float enemySpawnX;
@@ -28,8 +29,15 @@ namespace TH.Core
 
         void Update()
         {
-            if (isNextWave)
+            if (isNextWave && !GameManager.Instance.isPaused)
             {
+                if (shouldDestroy)
+                {
+                    for (int i = 0; i < enemies.Count; i++)
+                    {
+                        Destroy(enemies[i].gameObject);
+                    }
+                }
                 if (wave > Config.EnemyLimit)
                 {
                     wave = Config.EnemyLimit;
@@ -43,10 +51,7 @@ namespace TH.Core
                 waiter.InvokeForSeconds(() =>
                 {
                     wave++;
-                    for (int i = 0; i < enemies.Count; i++)
-                    {
-                        Destroy(enemies[i].gameObject);
-                    }
+                    shouldDestroy = true;
                     isNextWave = true;
                 }, Config.TimeBetweenWave);
             }
