@@ -52,6 +52,9 @@ namespace TH.Core
         [SerializeField]
         public Text youDiedScore;
 
+        [SerializeField]
+        public GameObject howToPlayMenu;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -65,6 +68,11 @@ namespace TH.Core
         }
 
         #region Show methods
+
+        public void ShowHowToPlayMenu()
+        {
+            howToPlayMenu.SetActive(true);
+        }
 
         /// <summary>
         /// Shows the score UI
@@ -125,6 +133,11 @@ namespace TH.Core
         #endregion
 
         #region Hide methods
+
+        public void HideHowToPlayMenu()
+        {
+            howToPlayMenu.SetActive(false);
+        }
 
         /// <summary>
         /// Hides the score UI
