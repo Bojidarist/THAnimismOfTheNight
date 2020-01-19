@@ -10,7 +10,8 @@ namespace TH.Utilities
             // Make sure the methods are called from another place
             // like GameManager
             SpawnPlayer(new Vector3(-2f, 0f), Quaternion.identity);
-            SpawnEnemy(new Vector3(2.5f, 0f), Quaternion.identity, EnemyType.SoriNoKanmushi);
+            // Bad code (soon to be removed)
+            SpawnEnemy(new Vector3(FindObjectOfType<ScreenBorderDetector>().rightBorder - Config.EnemyXOffsetFromRightBorder, 0f), Quaternion.identity, EnemyType.SoriNoKanmushi);
         }
 
         /// <summary>

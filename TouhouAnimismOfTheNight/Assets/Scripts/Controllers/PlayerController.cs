@@ -71,7 +71,7 @@ namespace TH.Controllers
                 // Clamp the player's position so they do not go off-screen
                 Vector3 clampedPosition = rb.transform.position;
                 clampedPosition += new Vector3(horizontalMovement * Time.deltaTime, verticalMovement * Time.deltaTime);
-                clampedPosition.x = Mathf.Clamp(clampedPosition.x, screenBorderDetector.leftBorder, screenBorderDetector.rightBorder);
+                clampedPosition.x = Mathf.Clamp(clampedPosition.x, screenBorderDetector.leftBorder, screenBorderDetector.rightBorder - Config.PlayerXOffsetFromRightBorder);
                 clampedPosition.y = Mathf.Clamp(clampedPosition.y, screenBorderDetector.bottomBorder, screenBorderDetector.upperBorder);
 
                 rb.transform.position = clampedPosition;
