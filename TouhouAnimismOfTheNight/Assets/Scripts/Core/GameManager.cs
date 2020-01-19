@@ -52,9 +52,8 @@ namespace TH.Core
         /// </summary>
         public void PlayerDeath()
         {
-            Debug.Log("The player died :(");
             UIManager.Instance.HideScore();
-            // Show some scoreboard UI
+            UIManager.Instance.ShowDeathMenu(score);
         }
 
         /// <summary>

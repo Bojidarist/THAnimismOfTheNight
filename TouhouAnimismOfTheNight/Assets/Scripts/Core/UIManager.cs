@@ -34,6 +34,18 @@ namespace TH.Core
         [SerializeField]
         public Text scoreText;
 
+        /// <summary>
+        /// The death menu
+        /// </summary>
+        [SerializeField]
+        public GameObject youDiedMenu;
+
+        /// <summary>
+        /// The score display for when the player dies
+        /// </summary>
+        [SerializeField]
+        public Text youDiedScore;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -54,6 +66,16 @@ namespace TH.Core
         public void ShowScore()
         {
             scoreText.gameObject.SetActive(true);
+        }
+
+        /// <summary>
+        /// Shows the death screen
+        /// </summary>
+        /// <param name="score">The score displayed on the death screen</param>
+        public void ShowDeathMenu(uint score)
+        {
+            youDiedScore.text = $"Score: { score }";
+            youDiedMenu.SetActive(true);
         }
 
         /// <summary>
@@ -94,6 +116,14 @@ namespace TH.Core
         public void HideScore()
         {
             scoreText.gameObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// Hides the death screen
+        /// </summary>
+        public void HideDeathMenu()
+        {
+            youDiedMenu.SetActive(false);
         }
 
         /// <summary>
