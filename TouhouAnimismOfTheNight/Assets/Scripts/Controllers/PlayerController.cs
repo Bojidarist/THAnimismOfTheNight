@@ -31,6 +31,8 @@ namespace TH.Controllers
         /// </summary>
         private PlayerShots playerShooter;
 
+        public GameObject focusSprite;
+
         void Start()
         {
             // Initialize
@@ -61,6 +63,8 @@ namespace TH.Controllers
                 }
                 // Handle movement
                 bool isFocusClicked = Input.GetKey(Config.FocusMovementKey);
+                focusSprite.SetActive(isFocusClicked);
+
                 float focusMovementMultiplier = isFocusClicked ? Config.FocusMovementMultiplier : 1f;
                 collider.size = isFocusClicked ? Config.FocusHitboxSize2D : defaultColliderSize;
                 float horizontalMovement = Input.GetAxis("Horizontal") * Config.GenericMovementMultiplier * focusMovementMultiplier;
