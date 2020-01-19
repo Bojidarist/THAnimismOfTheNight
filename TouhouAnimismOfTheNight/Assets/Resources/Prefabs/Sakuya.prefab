@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.2}
+  m_Size: {x: 0.35, y: 0.135}
   m_EdgeRadius: 0
 --- !u!114 &9199351746072301205
 MonoBehaviour:
@@ -157,3 +157,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 3753857912479049279, guid: c10f7cb5f4b5c7d4aa3e1766c23c8ef7, type: 3}
   numberOfBullets: 0
+  numberOfBombs: 3
