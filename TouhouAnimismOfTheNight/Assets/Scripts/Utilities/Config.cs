@@ -10,7 +10,7 @@ namespace TH.Utilities
 
         public static float GenericMovementMultiplier = 4f;
         public static float FocusMovementMultiplier = 0.2f;
-        public static float FocusHitboxSize = 0.1f;
+        public static float FocusHitboxSize = 0.05f;
         public static Vector2 FocusHitboxSize2D = new Vector2(FocusHitboxSize, FocusHitboxSize);
         public static float GenericEnemyMovementMultiplier = 1f;
         public static float GenericBulletSpeedMultiplier = 1f;
