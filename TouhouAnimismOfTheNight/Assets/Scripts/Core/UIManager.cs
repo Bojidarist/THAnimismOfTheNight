@@ -34,6 +34,12 @@ namespace TH.Core
         [SerializeField]
         public Text scoreText;
 
+        [SerializeField]
+        public Text knifesText;
+
+        [SerializeField]
+        public Text bombsText;
+
         /// <summary>
         /// The death menu
         /// </summary>
@@ -66,6 +72,16 @@ namespace TH.Core
         public void ShowScore()
         {
             scoreText.gameObject.SetActive(true);
+        }
+
+        public void ShowKnifesCount()
+        {
+            knifesText.gameObject.SetActive(true);
+        }
+
+        public void ShowBombsCount()
+        {
+            bombsText.gameObject.SetActive(true);
         }
 
         /// <summary>
@@ -118,6 +134,16 @@ namespace TH.Core
             scoreText.gameObject.SetActive(false);
         }
 
+        public void HideKnifesCount()
+        {
+            knifesText.gameObject.SetActive(false);
+        }
+
+        public void HideBombsCount()
+        {
+            bombsText.gameObject.SetActive(false);
+        }
+
         /// <summary>
         /// Hides the death screen
         /// </summary>
@@ -161,6 +187,16 @@ namespace TH.Core
         public void UpdateScore(ulong score)
         {
             scoreText.text = $"Score: { score }";
+        }
+
+        public void UpdateKnifes(int knifes)
+        {
+            knifesText.text = $"Knifes: { knifes }";
+        }
+
+        public void UpdateBombs(int bombs)
+        {
+            bombsText.text = $"Bombs: { bombs }";
         }
 
         #endregion

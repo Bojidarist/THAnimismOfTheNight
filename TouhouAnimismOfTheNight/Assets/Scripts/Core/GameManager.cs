@@ -43,8 +43,14 @@ namespace TH.Core
         {
             if (SceneManager.GetActiveScene().name == SceneNames.MainScene && !isPaused)
             {
+                var pShooter = FindObjectOfType<PlayerShots>();
                 score += 10;
                 UIManager.Instance.UpdateScore(score);
+                if (pShooter != null)
+                {
+                    UIManager.Instance.UpdateKnifes(pShooter.numberOfBullets);
+                    UIManager.Instance.UpdateBombs(pShooter.numberOfBombs);
+                }
             }
         }
 
@@ -54,6 +60,8 @@ namespace TH.Core
         public void PlayerDeath()
         {
             UIManager.Instance.HideScore();
+            UIManager.Instance.HideKnifesCount();
+            UIManager.Instance.HideBombsCount();
             UIManager.Instance.ShowDeathMenu(score);
             FindObjectOfType<PlayerController>().gameObject.SetActive(false);
         }
@@ -65,6 +73,8 @@ namespace TH.Core
         {
             score = 0;
             UIManager.Instance.ShowScore();
+            UIManager.Instance.ShowKnifesCount();
+            UIManager.Instance.ShowBombsCount();
         }
 
         /// <summary>
