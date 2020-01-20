@@ -13,47 +13,48 @@ namespace TH.Core
         /// <summary>
         /// The main menu UI object
         /// </summary>
-        [SerializeField]
-        public GameObject mainMenu;
+        [SerializeField] private GameObject mainMenu = default;
 
         /// <summary>
         /// The options menu UI object
         /// </summary>
-        [SerializeField]
-        public GameObject optionsMenu;
+        [SerializeField] private GameObject optionsMenu = default;
 
         /// <summary>
         /// The pause menu UI object
         /// </summary>
-        [SerializeField]
-        public GameObject pauseMenu;
+        [SerializeField] private GameObject pauseMenu = default;
 
         /// <summary>
         /// The score text
         /// </summary>
-        [SerializeField]
-        public Text scoreText;
+        [SerializeField] private Text scoreText = default;
 
-        [SerializeField]
-        public Text knifesText;
+        /// <summary>
+        /// The text displaying the amount of knifes left
+        /// </summary>
+        [SerializeField] private Text knifesText = default;
 
-        [SerializeField]
-        public Text bombsText;
+
+        /// <summary>
+        /// The text displaying the amount of bombs left
+        /// </summary>
+        [SerializeField] private Text bombsText = default;
 
         /// <summary>
         /// The death menu
         /// </summary>
-        [SerializeField]
-        public GameObject youDiedMenu;
+        [SerializeField] private GameObject youDiedMenu = default;
 
         /// <summary>
         /// The score display for when the player dies
         /// </summary>
-        [SerializeField]
-        public Text youDiedScore;
+        [SerializeField] private Text youDiedScore = default;
 
-        [SerializeField]
-        public GameObject howToPlayMenu;
+        /// <summary>
+        /// The menu that displays when the How To Play button is clicked
+        /// </summary>
+        [SerializeField] private GameObject howToPlayMenu = default;
 
         private void Awake()
         {
@@ -69,6 +70,9 @@ namespace TH.Core
 
         #region Show methods
 
+        /// <summary>
+        /// Shows the How To Play menu
+        /// </summary>
         public void ShowHowToPlayMenu()
         {
             howToPlayMenu.SetActive(true);
@@ -82,11 +86,17 @@ namespace TH.Core
             scoreText.gameObject.SetActive(true);
         }
 
+        /// <summary>
+        /// Shows the knifes count UI
+        /// </summary>
         public void ShowKnifesCount()
         {
             knifesText.gameObject.SetActive(true);
         }
 
+        /// <summary>
+        /// Shows the bomb count UI
+        /// </summary>
         public void ShowBombsCount()
         {
             bombsText.gameObject.SetActive(true);
@@ -134,6 +144,9 @@ namespace TH.Core
 
         #region Hide methods
 
+        /// <summary>
+        /// Hides the How To Play menu
+        /// </summary>
         public void HideHowToPlayMenu()
         {
             howToPlayMenu.SetActive(false);
@@ -147,11 +160,17 @@ namespace TH.Core
             scoreText.gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// Hides the knife count UI
+        /// </summary>
         public void HideKnifesCount()
         {
             knifesText.gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// Hides the bomb count UI
+        /// </summary>
         public void HideBombsCount()
         {
             bombsText.gameObject.SetActive(false);
@@ -202,11 +221,19 @@ namespace TH.Core
             scoreText.text = $"Score: { score }";
         }
 
+        /// <summary>
+        /// Updates the knife count UI
+        /// </summary>
+        /// <param name="knifes">The amount of knifes</param>
         public void UpdateKnifes(int knifes)
         {
             knifesText.text = $"Knifes: { knifes }";
         }
 
+        /// <summary>
+        /// Updates the bomb count UI
+        /// </summary>
+        /// <param name="bombs">The amount of bombs</param>
         public void UpdateBombs(int bombs)
         {
             bombsText.text = $"Bombs: { bombs }";

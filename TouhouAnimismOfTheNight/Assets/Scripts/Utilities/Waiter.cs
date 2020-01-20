@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Waiter : MonoBehaviour
 {
-    public void InvokeForSeconds(Action action, float seconds)
+    public void InvokeAfterSeconds(Action action, float seconds)
     {
         object[] parms = new object[] { action, seconds };
-        StartCoroutine("Wait", parms);
+        StartCoroutine(nameof(WaitCoroutine), parms);
     }
 
-    private IEnumerator Wait(object[] parms)
+    private IEnumerator WaitCoroutine(object[] parms)
     {
         Action action = parms[0] as Action;
         float seconds = (float)parms[1];

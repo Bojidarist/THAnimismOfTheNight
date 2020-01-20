@@ -15,20 +15,30 @@ namespace TH
         /// <summary>
         /// The bullet <see cref="GameManager"/>
         /// </summary>
-        public GameObject bullet;
+        [SerializeField] private GameObject bullet = default;
 
         /// <summary>
         /// The rate of fire
         /// </summary>
-        public float fireRate;
+        [SerializeField] private float fireRate = default;
 
         /// <summary>
         /// The <see cref="EnemyController"/> that is shooting
         /// </summary>
         private EnemyController enemyController;
 
-        private void Start()
+        // Shoot directions
+        private Vector2 leftDirection;
+        private Vector2 leftUpDirection;
+        private Vector2 leftDownDirection;
+        private Vector2 leftTopDirection;
+
+        private void Awake()
         {
+            leftDirection = new Vector2(-180, 0);
+            leftUpDirection = new Vector2(-180, 35);
+            leftTopDirection = new Vector2(-180, 70);
+            leftDownDirection = new Vector2(-180, -35);
             enemyController = GetComponent<EnemyController>();
         }
 
@@ -41,7 +51,7 @@ namespace TH
                     nextFire = Time.time + fireRate;
                     if (enemyController.enemyType == EnemyType.ShiroUneri)
                     {
-                        SpawnBullet(new Vector2(-180, 0));
+                        SpawnBullet(leftDirection);
                         return;
                     }
                     int rng = Random.Range(0, 2);
@@ -51,7 +61,7 @@ namespace TH
                     }
                     else
                     {
-                        SpawnBullet(new Vector2(-180, 0));
+                        SpawnBullet(leftDirection);
                     }
                 }
             }
@@ -62,10 +72,10 @@ namespace TH
         /// </summary>
         public void ShotgunPattern()
         {
-            SpawnBullet(new Vector2(-180, 0));
-            SpawnBullet(new Vector2(-180, 35));
-            SpawnBullet(new Vector2(-180, 70));
-            SpawnBullet(new Vector2(-180, -35));
+            SpawnBullet(leftDirection);
+            SpawnBullet(leftUpDirection);
+            SpawnBullet(leftTopDirection);
+            SpawnBullet(leftDownDirection);
         }
 
         /// <summary>

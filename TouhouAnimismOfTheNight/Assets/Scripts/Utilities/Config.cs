@@ -14,10 +14,10 @@ namespace TH.Utilities
         public static Vector2 FocusHitboxSize2D = new Vector2(FocusHitboxSize, FocusHitboxSize);
         public static float GenericEnemyMovementMultiplier = 1f;
         public static float GenericBulletSpeedMultiplier = 1f;
-        public static float PlayerXOffsetFromRightBorder = 1f;
+        public static float PlayerXOffsetFromBorder = 1f;
         public static float EnemyXOffsetFromRightBorder = 0.5f;
         public static float TimeBetweenWave = 90f;
-        public static int EnemyLimit = 10;
+        public static int WaveLimit = 10;
 
         public static KeyCode FocusMovementKey = KeyCode.LeftShift;
         public static KeyCode PlayerShootKey = KeyCode.Z;

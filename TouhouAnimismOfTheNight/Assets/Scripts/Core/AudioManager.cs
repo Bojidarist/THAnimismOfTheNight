@@ -30,7 +30,7 @@ namespace TH.Core
             else
             {
                 Instance = this;
-                ConfigureSounds();
+                InitAudioClips();
             }
         }
 
@@ -40,7 +40,7 @@ namespace TH.Core
             bgMusic.volume = Config.MusicVolume;
         }
 
-        private void ConfigureSounds()
+        private void InitAudioClips()
         {
             playerAtackFX = gameObject.AddComponent<AudioSource>();
             bgMusic = gameObject.AddComponent<AudioSource>();

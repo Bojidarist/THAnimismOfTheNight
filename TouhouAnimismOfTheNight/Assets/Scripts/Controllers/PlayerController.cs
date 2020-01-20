@@ -31,9 +31,12 @@ namespace TH.Controllers
         /// </summary>
         private PlayerShots playerShooter;
 
-        public GameObject focusSprite;
+        /// <summary>
+        /// The sprite that appears when the player hits the focus button
+        /// </summary>
+        [SerializeField] private GameObject focusSprite = default;
 
-        void Start()
+        private void Awake()
         {
             // Initialize
             rb = GetComponent<Rigidbody2D>();
@@ -42,7 +45,7 @@ namespace TH.Controllers
             defaultColliderSize = collider.size;
             screenBorderDetector = FindObjectOfType<ScreenBorderDetector>();
 
-            GameManager.Instance.PlayerSpawned();
+            GameManager.Instance.PlayerSpawned(this.gameObject);
         }
 
         void Update()
@@ -53,14 +56,9 @@ namespace TH.Controllers
             }
             if (!GameManager.Instance.isPaused)
             {
-                if (Input.GetKeyDown(Config.PlayerShootKey))
-                {
-                    playerShooter.Shoot();
-                }
-                if (Input.GetKeyDown(Config.PlayerBombKey))
-                {
-                    playerShooter.Bomb();
-                }
+                if (Input.GetKeyDown(Config.PlayerShootKey)) { playerShooter.Shoot(); }
+                if (Input.GetKeyDown(Config.PlayerBombKey)) { playerShooter.Bomb(); }
+
                 // Handle movement
                 bool isFocusClicked = Input.GetKey(Config.FocusMovementKey);
                 focusSprite.SetActive(isFocusClicked);
@@ -73,7 +71,7 @@ namespace TH.Controllers
                 // Clamp the player's position so they do not go off-screen
                 Vector3 clampedPosition = rb.transform.position;
                 clampedPosition += new Vector3(horizontalMovement * Time.deltaTime, verticalMovement * Time.deltaTime);
-                clampedPosition.x = Mathf.Clamp(clampedPosition.x, screenBorderDetector.leftBorder, screenBorderDetector.rightBorder - Config.PlayerXOffsetFromRightBorder);
+                clampedPosition.x = Mathf.Clamp(clampedPosition.x, screenBorderDetector.leftBorder, screenBorderDetector.rightBorder - Config.PlayerXOffsetFromBorder);
                 clampedPosition.y = Mathf.Clamp(clampedPosition.y, screenBorderDetector.bottomBorder, screenBorderDetector.upperBorder);
 
                 rb.transform.position = clampedPosition;
@@ -84,7 +82,7 @@ namespace TH.Controllers
         {
             if (collision.tag == "EnemyProjectile")
             {
-                GameManager.Instance.PlayerDeath();
+                GameManager.Instance.PlayerDeath(this.gameObject);
                 Destroy(collision.gameObject);
             }
             else if (collision.tag == "GraceProjectile")

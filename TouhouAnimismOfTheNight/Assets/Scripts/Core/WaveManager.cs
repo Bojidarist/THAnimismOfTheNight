@@ -8,7 +8,7 @@ namespace TH.Core
     {
         private ScreenBorderDetector borderDetector;
         private Waiter waiter;
-        public int wave = 1;
+        [SerializeField] private int wave = 1;
         private bool isNextWave = true;
         private bool shouldDestroy = false;
         private List<GameObject> enemies;
@@ -16,18 +16,22 @@ namespace TH.Core
         private float enemySpawnX;
         private System.Array enemyTypes;
 
-        void Start()
+        private void Awake()
         {
             enemies = new List<GameObject>();
             waiter = FindObjectOfType<Waiter>();
             borderDetector = FindObjectOfType<ScreenBorderDetector>();
-            playerSpawnX = borderDetector.leftBorder + Config.PlayerXOffsetFromRightBorder;
-            enemySpawnX = borderDetector.rightBorder - Config.EnemyXOffsetFromRightBorder;
             enemyTypes = System.Enum.GetValues(typeof(EnemyType));
+        }
+
+        private void Start()
+        {
+            playerSpawnX = borderDetector.leftBorder + Config.PlayerXOffsetFromBorder;
+            enemySpawnX = borderDetector.rightBorder - Config.EnemyXOffsetFromRightBorder;
             Spawner.SpawnPlayer(new Vector3(playerSpawnX, 0), Quaternion.identity);
         }
 
-        void Update()
+        private void Update()
         {
             if (isNextWave && !GameManager.Instance.isPaused)
             {
@@ -38,17 +42,14 @@ namespace TH.Core
                         Destroy(enemies[i].gameObject);
                     }
                 }
-                if (wave > Config.EnemyLimit)
-                {
-                    wave = Config.EnemyLimit;
-                }
+                if (wave > Config.WaveLimit) { wave = Config.WaveLimit; }
                 for (int i = 0; i < wave; i++)
                 {
                     enemies.Add(Spawner.SpawnEnemy(new Vector3(enemySpawnX, Random.Range(borderDetector.bottomBorder, borderDetector.upperBorder)),
                         Quaternion.identity, (EnemyType)enemyTypes.GetValue(Random.Range(0, enemyTypes.Length))));
                 }
                 isNextWave = false;
-                waiter.InvokeForSeconds(() =>
+                waiter.InvokeAfterSeconds(() =>
                 {
                     wave++;
                     shouldDestroy = true;

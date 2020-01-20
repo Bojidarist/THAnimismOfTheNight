@@ -1,5 +1,4 @@
-﻿using TH.Controllers;
-using TH.Utilities;
+﻿using TH.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +21,16 @@ namespace TH.Core
         /// </summary>
         public ulong score = 0;
 
+        /// <summary>
+        /// Stores the player's latest <see cref="PlayerShots"/>
+        /// </summary>
+        private PlayerShots latestPlayerShots;
+
+        /// <summary>
+        /// The latest used <see cref="ScreenBorderDetector"/>
+        /// </summary>
+        private ScreenBorderDetector latestBorderDetector;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -43,13 +52,12 @@ namespace TH.Core
         {
             if (SceneManager.GetActiveScene().name == SceneNames.MainScene && !isPaused)
             {
-                var pShooter = FindObjectOfType<PlayerShots>();
                 score += 10;
                 UIManager.Instance.UpdateScore(score);
-                if (pShooter != null)
+                if (latestPlayerShots != null)
                 {
-                    UIManager.Instance.UpdateKnifes(pShooter.numberOfBullets);
-                    UIManager.Instance.UpdateBombs(pShooter.numberOfBombs);
+                    UIManager.Instance.UpdateKnifes(latestPlayerShots.numberOfBullets);
+                    UIManager.Instance.UpdateBombs(latestPlayerShots.numberOfBombs);
                 }
             }
         }
@@ -57,20 +65,22 @@ namespace TH.Core
         /// <summary>
         /// Handles the player's death
         /// </summary>
-        public void PlayerDeath()
+        public void PlayerDeath(GameObject player)
         {
             UIManager.Instance.HideScore();
             UIManager.Instance.HideKnifesCount();
             UIManager.Instance.HideBombsCount();
             UIManager.Instance.ShowDeathMenu(score);
-            FindObjectOfType<PlayerController>().gameObject.SetActive(false);
+            player.SetActive(false);
+            latestPlayerShots = null;
         }
 
         /// <summary>
         /// Handles the variables when the player spawns
         /// </summary>
-        public void PlayerSpawned()
+        public void PlayerSpawned(GameObject player)
         {
+            latestPlayerShots = player.GetComponent<PlayerShots>();
             score = 0;
             UIManager.Instance.ShowScore();
             UIManager.Instance.ShowKnifesCount();
@@ -111,13 +121,18 @@ namespace TH.Core
         /// <returns>If the position is out of bounds</returns>
         public bool IsOutOfBoundsCheck(Vector3 position, float offset = 0.1f)
         {
-            var borderDetector = FindObjectOfType<ScreenBorderDetector>();
+            latestBorderDetector = latestBorderDetector != null ? latestBorderDetector : FindObjectOfType<ScreenBorderDetector>();
+            if (latestBorderDetector == null)
+            {
+                return false;
+            }
+
             float x = position.x;
             float y = position.y;
-            float xl = borderDetector.leftBorder - offset;
-            float xr = borderDetector.rightBorder + offset;
-            float yu = borderDetector.upperBorder + offset;
-            float yb = borderDetector.bottomBorder - offset;
+            float xl = latestBorderDetector.leftBorder - offset;
+            float xr = latestBorderDetector.rightBorder + offset;
+            float yu = latestBorderDetector.upperBorder + offset;
+            float yb = latestBorderDetector.bottomBorder - offset;
 
             return x > xr || x < xl || y < yb || y > yu;
         }

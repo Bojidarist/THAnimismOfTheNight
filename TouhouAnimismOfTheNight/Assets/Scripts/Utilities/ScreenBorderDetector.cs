@@ -7,32 +7,27 @@ namespace TH.Utilities
         /// <summary>
         /// The main <see cref="Camera"/> that will be used as reference
         /// </summary>
-        [SerializeField]
-        public Camera mainCamera;
+        [SerializeField] private Camera mainCamera = default;
 
         /// <summary>
         /// The coordinates for the left border of the screen
         /// </summary>
-        [HideInInspector]
-        public float leftBorder;
+        [HideInInspector] public float leftBorder;
 
         /// <summary>
         /// The coordinates for the right border of the screen
         /// </summary>
-        [HideInInspector]
-        public float rightBorder;
+        [HideInInspector] public float rightBorder;
 
         /// <summary>
         /// The coordinates for the upper border of the screen
         /// </summary>
-        [HideInInspector]
-        public float upperBorder;
+        [HideInInspector] public float upperBorder;
 
         /// <summary>
         /// The coordinates for the bottom border of the screen
         /// </summary>
-        [HideInInspector]
-        public float bottomBorder;
+        [HideInInspector] public float bottomBorder;
 
         private void Awake()
         {
@@ -40,18 +35,19 @@ namespace TH.Utilities
                 return;
 
             // Initialize the values
-            leftBorder = mainCamera.ViewportToWorldPoint(Vector3.zero).x;
-            rightBorder = mainCamera.ViewportToWorldPoint(Vector3.right).x;
-            upperBorder = mainCamera.ViewportToWorldPoint(Vector3.up).y;
-            bottomBorder = mainCamera.ViewportToWorldPoint(Vector3.right).y;
+            UpdateValues();
         }
 
         private void LateUpdate()
         {
+            UpdateValues();
+        }
+
+        private void UpdateValues()
+        {
             if (mainCamera == null)
                 return;
 
-            // Refresh the values
             leftBorder = mainCamera.ViewportToWorldPoint(Vector3.zero).x;
             rightBorder = mainCamera.ViewportToWorldPoint(Vector3.right).x;
             upperBorder = mainCamera.ViewportToWorldPoint(Vector3.up).y;

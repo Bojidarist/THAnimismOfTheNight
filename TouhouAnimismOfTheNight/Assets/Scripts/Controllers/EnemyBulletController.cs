@@ -14,7 +14,7 @@ namespace TH.Controllers
         /// <summary>
         /// The bullet's latest position
         /// </summary>
-        private Vector3 position;
+        private Vector3 lastPosition;
 
         /// <summary>
         /// The amount of spread in SpreadShot
@@ -33,7 +33,7 @@ namespace TH.Controllers
         public EnemyType enemyType;
 
 
-        private void Start()
+        private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
         }
@@ -45,6 +45,7 @@ namespace TH.Controllers
                 if (GameManager.Instance.IsOutOfBoundsCheck(transform.position))
                 {
                     Destroy(this.gameObject);
+                    return;
                 }
                 switch (enemyType)
                 {
@@ -64,7 +65,7 @@ namespace TH.Controllers
             else
             {
                 rb.velocity = new Vector2(0, 0);
-                transform.position = position;
+                transform.position = lastPosition;
             }
         }
 
@@ -74,7 +75,7 @@ namespace TH.Controllers
         private void NormalShot()
         {
             rb.velocity = direction * Config.GenericBulletSpeedMultiplier * Time.deltaTime;
-            position = transform.position;
+            lastPosition = transform.position;
         }
 
         /// <summary>
@@ -85,7 +86,7 @@ namespace TH.Controllers
             direction.x -= spreadShotOffset;
             direction.y += spreadShotOffset;
             rb.velocity = direction * Config.GenericBulletSpeedMultiplier * 0.2f * Time.deltaTime;
-            position = transform.position;
+            lastPosition = transform.position;
         }
     }
 }

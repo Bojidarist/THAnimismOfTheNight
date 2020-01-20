@@ -26,14 +26,14 @@ namespace TH.Controllers
         /// </summary>
         public EnemyType enemyType;
 
-        void Start()
+        private void Awake()
         {
             // Initialize
             rb = GetComponent<Rigidbody2D>();
             screenBorderDetector = FindObjectOfType<ScreenBorderDetector>();
         }
 
-        void Update()
+        private void Update()
         {
             if (!GameManager.Instance.isPaused)
             {

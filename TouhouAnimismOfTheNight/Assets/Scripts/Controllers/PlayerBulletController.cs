@@ -21,18 +21,19 @@ namespace TH.Controllers
         /// </summary>
         public Vector2 direction;
 
-        private void Start()
+        private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
         }
 
-        void Update()
+        private void Update()
         {
             if (!GameManager.Instance.isPaused)
             {
                 if (GameManager.Instance.IsOutOfBoundsCheck(transform.position))
                 {
                     Destroy(this.gameObject);
+                    return;
                 }
                 rb.velocity = direction * Config.GenericBulletSpeedMultiplier * Time.deltaTime;
                 position = transform.position;

@@ -9,7 +9,7 @@ namespace TH
         /// <summary>
         /// The bullet <see cref="GameObject"/>
         /// </summary>
-        public GameObject bullet;
+        [SerializeField] private GameObject bullet = default;
 
         /// <summary>
         /// The current number of bullets the player has
@@ -22,13 +22,23 @@ namespace TH
         public int numberOfBombs = 3;
 
         /// <summary>
+        /// The direction the player shoots
+        /// </summary>
+        private Vector2 shootDirection;
+
+        private void Awake()
+        {
+            shootDirection = new Vector2(180, 0);
+        }
+
+        /// <summary>
         /// Shoots a bullet
         /// </summary>
         public void Shoot()
         {
             if (numberOfBullets > 0)
             {
-                SpawnBullet(new Vector2(180, 0));
+                SpawnBullet(shootDirection);
                 numberOfBullets--;
                 AudioManager.Instance.PlayPlayerFireFX();
             }

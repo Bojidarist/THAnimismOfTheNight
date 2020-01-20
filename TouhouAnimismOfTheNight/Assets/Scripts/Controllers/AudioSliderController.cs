@@ -9,16 +9,14 @@ namespace TH.Controllers
         /// <summary>
         /// The slider this controller is responsible for
         /// </summary>
-        [SerializeField]
-        public Slider slider;
+        [SerializeField] private Slider slider = default;
 
         /// <summary>
         /// The type of audio this slider controls
         /// </summary>
-        [SerializeField]
-        public SliderType sliderType;
+        [SerializeField] private SliderType sliderType = default;
 
-        private void Start()
+        private void Awake()
         {
             slider.onValueChanged.AddListener((value) => { ChangeVolume(value); });
         }
