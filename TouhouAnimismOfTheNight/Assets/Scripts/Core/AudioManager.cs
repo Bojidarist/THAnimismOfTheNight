@@ -17,6 +17,21 @@ namespace TH.Core
         private AudioSource playerAtackFX;
 
         /// <summary>
+        /// The sound effect played when the player activates a bomb
+        /// </summary>
+        private AudioSource playerBombFX;
+
+        /// <summary>
+        /// The sound effect played when the player grazes
+        /// </summary>
+        private AudioSource playerGrazeFX;
+
+        /// <summary>
+        /// The sound effect played when an enemy attack
+        /// </summary>
+        private AudioSource enemyAtackFX;
+
+        /// <summary>
         /// The background music
         /// </summary>
         private AudioSource bgMusic;
@@ -37,22 +52,33 @@ namespace TH.Core
         private void Update()
         {
             playerAtackFX.volume = Config.SFXVolume;
+            playerBombFX.volume = Config.SFXVolume;
+            enemyAtackFX.volume = Config.SFXVolume;
             bgMusic.volume = Config.MusicVolume;
         }
 
         private void InitAudioClips()
         {
-            playerAtackFX = gameObject.AddComponent<AudioSource>();
-            bgMusic = gameObject.AddComponent<AudioSource>();
+            LoadSound(ref playerAtackFX, Path.Combine("SFX", "Fire"));
+            LoadSound(ref playerBombFX, Path.Combine("SFX", "SPELLCARD"));
+            LoadSound(ref playerGrazeFX, Path.Combine("SFX", "Graze"));
+            LoadSound(ref enemyAtackFX, Path.Combine("SFX", "EnemyAttack"));
+            LoadSound(ref bgMusic, Path.Combine("Music", "LivioAmato_Desiree"), true);
+        }
 
-            playerAtackFX.clip = Resources.Load<AudioClip>(Path.Combine("SFX", "Fire"));
-            bgMusic.clip = Resources.Load<AudioClip>(Path.Combine("Music", "LivioAmato_Desiree"));
+        /// <summary>
+        /// Load a sound from resources
+        /// </summary>
+        private void LoadSound(ref AudioSource src, string path, bool isLoop = false, bool playOnAwake = false, bool addComponent = true)
+        {
+            if (addComponent)
+            {
+                src = gameObject.AddComponent<AudioSource>();
+            }
+            src.clip = Resources.Load<AudioClip>(path);
+            src.loop = isLoop;
+            src.playOnAwake = playOnAwake;
 
-            playerAtackFX.playOnAwake = false;
-            bgMusic.playOnAwake = false;
-
-            playerAtackFX.loop = false;
-            bgMusic.loop = true;
         }
 
         /// <summary>
@@ -61,6 +87,30 @@ namespace TH.Core
         public void PlayPlayerFireFX()
         {
             playerAtackFX.Play();
+        }
+
+        /// <summary>
+        /// Play the sound effect for the player's bombing adventures
+        /// </summary>
+        public void PlayPlayerBombFX()
+        {
+            playerBombFX.Play();
+        }
+
+        /// <summary>
+        /// Play the sound effect when the player grazes
+        /// </summary>
+        public void PlayPlayerGrazeFX()
+        {
+            playerGrazeFX.Play();
+        }
+
+        /// <summary>
+        /// Play the sound effect for the enemy's attack
+        /// </summary>
+        public void PlayEnemyAtackFX()
+        {
+            enemyAtackFX.Play();
         }
 
         /// <summary>

@@ -76,6 +76,7 @@ namespace TH
             SpawnBullet(leftUpDirection);
             SpawnBullet(leftTopDirection);
             SpawnBullet(leftDownDirection);
+            AudioManager.Instance.PlayEnemyAtackFX();
         }
 
         /// <summary>
@@ -88,6 +89,7 @@ namespace TH
             var bController = temp.GetComponent<EnemyBulletController>();
             bController.enemyType = enemyController.enemyType;
             bController.direction = direction;
+            AudioManager.Instance.PlayEnemyAtackFX();
         }
     }
 }

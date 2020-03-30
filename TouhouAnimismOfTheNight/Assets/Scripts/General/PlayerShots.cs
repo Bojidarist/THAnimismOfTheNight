@@ -52,6 +52,7 @@ namespace TH
             if (numberOfBombs > 0)
             {
                 var bullets = FindObjectsOfType<EnemyBulletController>();
+                AudioManager.Instance.PlayPlayerBombFX();
                 foreach (var bullet in bullets)
                 {
                     Destroy(bullet.gameObject);

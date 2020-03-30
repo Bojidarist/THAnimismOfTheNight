@@ -88,6 +88,7 @@ namespace TH.Controllers
             else if (collision.tag == "GraceProjectile")
             {
                 playerShooter.numberOfBullets++;
+                AudioManager.Instance.PlayPlayerGrazeFX();
             }
         }
     }
