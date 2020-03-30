@@ -3352,7 +3352,9 @@ MonoBehaviour:
 
     Move near enemy fire to get knifes
 
-    Enemies cannot be defeated with knifes
+    Knifes can destroy enemy projectiles
+
+    Every 60 seconds the game gets harder
 
     Survive and get high score'
 --- !u!222 &1454767012
