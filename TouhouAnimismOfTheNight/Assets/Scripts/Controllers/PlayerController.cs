@@ -12,6 +12,11 @@ namespace TH.Controllers
         private Rigidbody2D rb;
 
         /// <summary>
+        /// The clamped position
+        /// </summary>
+        private Vector2 clampedPosition;
+
+        /// <summary>
         /// The hitbox of the controlled object
         /// </summary>
         private new BoxCollider2D collider;
@@ -65,16 +70,17 @@ namespace TH.Controllers
 
                 float focusMovementMultiplier = isFocusClicked ? Config.FocusMovementMultiplier : 1f;
                 collider.size = isFocusClicked ? Config.FocusHitboxSize2D : defaultColliderSize;
-                float horizontalMovement = Input.GetAxis("Horizontal") * Config.GenericMovementMultiplier * focusMovementMultiplier;
-                float verticalMovement = Input.GetAxis("Vertical") * Config.GenericMovementMultiplier * focusMovementMultiplier;
+                float horizontalMovement = Input.GetAxisRaw("Horizontal") * Config.GenericMovementMultiplier * focusMovementMultiplier;
+                float verticalMovement = Input.GetAxisRaw("Vertical") * Config.GenericMovementMultiplier * focusMovementMultiplier;
 
                 // Clamp the player's position so they do not go off-screen
-                Vector3 clampedPosition = rb.transform.position;
-                clampedPosition += new Vector3(horizontalMovement * Time.deltaTime, verticalMovement * Time.deltaTime);
+                clampedPosition = rb.transform.position;
+                clampedPosition.x += horizontalMovement * Time.deltaTime;
+                clampedPosition.y += verticalMovement * Time.deltaTime;
                 clampedPosition.x = Mathf.Clamp(clampedPosition.x, screenBorderDetector.leftBorder, screenBorderDetector.rightBorder - Config.PlayerXOffsetFromBorder);
                 clampedPosition.y = Mathf.Clamp(clampedPosition.y, screenBorderDetector.bottomBorder, screenBorderDetector.upperBorder);
 
-                rb.transform.position = clampedPosition;
+                rb.MovePosition(clampedPosition);
             }
         }
 
