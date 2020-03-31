@@ -56,6 +56,10 @@ namespace TH.Core
                 UIManager.Instance.UpdateScore(score);
                 if (latestPlayerShots != null)
                 {
+                    if (score % Config.NewBombScore == 0)
+                    {
+                        latestPlayerShots.numberOfBombs++;
+                    }
                     UIManager.Instance.UpdateKnifes(latestPlayerShots.numberOfBullets);
                     UIManager.Instance.UpdateBombs(latestPlayerShots.numberOfBombs);
                 }

@@ -3356,6 +3356,8 @@ MonoBehaviour:
 
     Every 60 seconds the game gets harder
 
+    Every 30000 score you get a bomb
+
     Survive and get high score'
 --- !u!222 &1454767012
 CanvasRenderer:
@@ -3952,7 +3954,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1373684771}
-        m_MethodName: MainScene
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

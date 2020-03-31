@@ -4,5 +4,6 @@
     {
         public static string MainMenu = "MainMenu";
         public static string MainScene = "MainScene";
+        public static string TutorialScene = "TutorialScene";
     }
 }

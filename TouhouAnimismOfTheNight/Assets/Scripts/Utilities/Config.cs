@@ -18,6 +18,8 @@ namespace TH.Utilities
         public static float EnemyXOffsetFromRightBorder = 0.5f;
         public static float TimeBetweenWave = 60f;
         public static int WaveLimit = 10;
+        public static ulong NewBombScore = 30000;
+        public static bool IsTutorialPlayed = false;
 
         public static KeyCode FocusMovementKey = KeyCode.LeftShift;
         public static KeyCode PlayerShootKey = KeyCode.Z;

@@ -20,5 +20,29 @@ namespace TH.Utilities
         {
             GameManager.Instance.ChangeScene(SceneNames.MainScene);
         }
+
+        /// <summary>
+        /// Changes the current scene to the tutorial
+        /// </summary>
+        public void TutorialScene()
+        {
+            GameManager.Instance.ChangeScene(SceneNames.TutorialScene);
+        }
+
+        /// <summary>
+        /// Manages which scene should be loaded when 'start' is pressed
+        /// </summary>
+        public void StartGame()
+        {
+            if (Config.IsTutorialPlayed)
+            {
+                MainScene();
+            }
+            else
+            {
+                TutorialScene();
+                Config.IsTutorialPlayed = true;
+            }
+        }
     }
 }

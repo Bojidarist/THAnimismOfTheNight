@@ -41,6 +41,11 @@ namespace TH.Controllers
         /// </summary>
         [SerializeField] private GameObject focusSprite = default;
 
+        /// <summary>
+        /// Indicates if the player has GodMode on
+        /// </summary>
+        [SerializeField] private bool godMode = false;
+
         private void Awake()
         {
             // Initialize
@@ -88,7 +93,10 @@ namespace TH.Controllers
         {
             if (collision.tag == "EnemyProjectile")
             {
-                GameManager.Instance.PlayerDeath(this.gameObject);
+                if (!godMode)
+                {
+                    GameManager.Instance.PlayerDeath(this.gameObject);
+                }
                 Destroy(collision.gameObject);
             }
             else if (collision.tag == "GraceProjectile")
