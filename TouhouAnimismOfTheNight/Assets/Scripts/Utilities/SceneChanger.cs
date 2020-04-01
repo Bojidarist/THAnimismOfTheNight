@@ -1,32 +1,97 @@
-﻿using TH.Core;
+﻿using System;
+using TH.Core;
 using UnityEngine;
 
 namespace TH.Utilities
 {
     public class SceneChanger : MonoBehaviour
     {
+        private Waiter waiter;
+
+        public Animator transition;
+        public float transitionTime = 1f;
+
+        private void Awake()
+        {
+            waiter = FindObjectOfType<Waiter>();
+        }
+
+        public void PlayOpeningTransition(Action callback = null)
+        {
+            transition.SetBool("Start", true);
+            waiter.InvokeAfterSeconds(() =>
+            {
+                if (callback != null)
+                {
+                    callback.Invoke();
+                }
+            }, transitionTime);
+        }
+
+        public void PlayClosingTransition(Action callback = null)
+        {
+            transition.SetBool("Start", false);
+            waiter.InvokeAfterSeconds(() =>
+            {
+                if (callback != null)
+                {
+                    callback.Invoke();
+                }
+            }, transitionTime);
+        }
+
         /// <summary>
         /// Changes the current scene to Main Menu
         /// </summary>
-        public void MainMenu()
+        public void MainMenu(bool transition = false)
         {
-            GameManager.Instance.ChangeScene(SceneNames.MainMenu);
+            if (transition)
+            {
+                PlayClosingTransition(() =>
+                {
+                    GameManager.Instance.ChangeScene(SceneNames.MainMenu);
+                });
+            }
+            else
+            {
+                GameManager.Instance.ChangeScene(SceneNames.MainMenu);
+            }
         }
 
         /// <summary>
         /// Changes the current scene to the Main(gameplay) Scene
         /// </summary>
-        public void MainScene()
+        public void MainScene(bool transition = false)
         {
-            GameManager.Instance.ChangeScene(SceneNames.MainScene);
+            if (transition)
+            {
+                PlayClosingTransition(() =>
+                {
+                    GameManager.Instance.ChangeScene(SceneNames.MainScene);
+                });
+            }
+            else
+            {
+                GameManager.Instance.ChangeScene(SceneNames.MainScene);
+            }
         }
 
         /// <summary>
         /// Changes the current scene to the tutorial
         /// </summary>
-        public void TutorialScene()
+        public void TutorialScene(bool transition = false)
         {
-            GameManager.Instance.ChangeScene(SceneNames.TutorialScene);
+            if (transition)
+            {
+                PlayClosingTransition(() =>
+                {
+                    GameManager.Instance.ChangeScene(SceneNames.TutorialScene);
+                });
+            }
+            else
+            {
+                GameManager.Instance.ChangeScene(SceneNames.TutorialScene);
+            }
         }
 
         /// <summary>
@@ -36,11 +101,11 @@ namespace TH.Utilities
         {
             if (Config.IsTutorialPlayed)
             {
-                MainScene();
+                MainScene(true);
             }
             else
             {
-                TutorialScene();
+                TutorialScene(true);
                 Config.IsTutorialPlayed = true;
             }
         }

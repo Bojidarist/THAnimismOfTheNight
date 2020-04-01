@@ -27,9 +27,20 @@ namespace TH
         /// </summary>
         private ScreenBorderDetector borderDetector;
 
+        /// <summary>
+        /// The <see cref="SceneChanger"/> used for transitions
+        /// </summary>
+        private SceneChanger sceneChanger;
+
+        /// <summary>
+        /// The button that skips the tutorial
+        /// </summary>
+        [SerializeField] private Button skipButton = default;
+
         void Awake()
         {
             waiter = FindObjectOfType<Waiter>();
+            sceneChanger = FindObjectOfType<SceneChanger>();
             borderDetector = FindObjectOfType<ScreenBorderDetector>();
         }
 
@@ -80,7 +91,7 @@ namespace TH
             {
                 if (tutorialText == null)
                     return;
-                GameManager.Instance.ChangeScene(SceneNames.MainScene);
+                SkipTutorial();
             }, 70);
         }
 
@@ -97,7 +108,10 @@ namespace TH
         /// </summary>
         public void SkipTutorial()
         {
-            GameManager.Instance.ChangeScene(SceneNames.MainScene);
+            tutorialText.gameObject.SetActive(false);
+            skipButton.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
+            sceneChanger.MainScene(true);
         }
     }
 }
