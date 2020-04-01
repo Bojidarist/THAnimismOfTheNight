@@ -21,6 +21,11 @@ namespace TH.Utilities
         public static ulong NewBombScore = 30000;
         public static bool IsTutorialPlayed = false;
 
+        public static Vector2 EnemyShootLeftDirection = new Vector2(-180, 0);
+        public static Vector2 EnemyShootLeftUpDirection = new Vector2(-180, 35);
+        public static Vector2 EnemyShootLeftTopDirection = new Vector2(-180, 70);
+        public static Vector2 EnemyShootLeftDownDirection = new Vector2(-180, -35);
+
         public static KeyCode FocusMovementKey = KeyCode.LeftShift;
         public static KeyCode PlayerShootKey = KeyCode.Z;
         public static KeyCode PlayerBombKey = KeyCode.X;

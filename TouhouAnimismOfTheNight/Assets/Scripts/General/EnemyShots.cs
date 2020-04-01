@@ -27,18 +27,8 @@ namespace TH
         /// </summary>
         private EnemyController enemyController;
 
-        // Shoot directions
-        private Vector2 leftDirection;
-        private Vector2 leftUpDirection;
-        private Vector2 leftDownDirection;
-        private Vector2 leftTopDirection;
-
         private void Awake()
         {
-            leftDirection = new Vector2(-180, 0);
-            leftUpDirection = new Vector2(-180, 35);
-            leftTopDirection = new Vector2(-180, 70);
-            leftDownDirection = new Vector2(-180, -35);
             enemyController = GetComponent<EnemyController>();
         }
 
@@ -51,7 +41,7 @@ namespace TH
                     nextFire = Time.time + fireRate;
                     if (enemyController.enemyType == EnemyType.ShiroUneri)
                     {
-                        SpawnBullet(leftDirection);
+                        SpawnBullet(Config.EnemyShootLeftDirection);
                         return;
                     }
                     int rng = Random.Range(0, 2);
@@ -61,7 +51,7 @@ namespace TH
                     }
                     else
                     {
-                        SpawnBullet(leftDirection);
+                        SpawnBullet(Config.EnemyShootLeftDirection);
                     }
                 }
             }
@@ -72,10 +62,10 @@ namespace TH
         /// </summary>
         public void ShotgunPattern()
         {
-            SpawnBullet(leftDirection);
-            SpawnBullet(leftUpDirection);
-            SpawnBullet(leftTopDirection);
-            SpawnBullet(leftDownDirection);
+            SpawnBullet(Config.EnemyShootLeftDirection);
+            SpawnBullet(Config.EnemyShootLeftUpDirection);
+            SpawnBullet(Config.EnemyShootLeftTopDirection);
+            SpawnBullet(Config.EnemyShootLeftDownDirection);
             AudioManager.Instance.PlayEnemyAtackFX();
         }
 

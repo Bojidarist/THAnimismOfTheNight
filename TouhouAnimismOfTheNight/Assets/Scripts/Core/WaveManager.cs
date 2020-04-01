@@ -15,9 +15,11 @@ namespace TH.Core
         private float playerSpawnX;
         private float enemySpawnX;
         private System.Array enemyTypes;
+        private Vector3 enemySpawnPosition;
 
         private void Awake()
         {
+            enemySpawnPosition = Vector3.zero;
             enemies = new List<GameObject>();
             waiter = FindObjectOfType<Waiter>();
             borderDetector = FindObjectOfType<ScreenBorderDetector>();
@@ -45,8 +47,10 @@ namespace TH.Core
                 if (wave > Config.WaveLimit) { wave = Config.WaveLimit; }
                 for (int i = 0; i < wave; i++)
                 {
-                    enemies.Add(Spawner.SpawnEnemy(new Vector3(enemySpawnX, Random.Range(borderDetector.bottomBorder, borderDetector.upperBorder)),
-                        Quaternion.identity, (EnemyType)enemyTypes.GetValue(Random.Range(0, enemyTypes.Length))));
+                    enemySpawnPosition.x = enemySpawnX;
+                    enemySpawnPosition.y = Random.Range(borderDetector.bottomBorder, borderDetector.upperBorder);
+                    enemies.Add(Spawner.SpawnEnemy(enemySpawnPosition, Quaternion.identity,
+                        (EnemyType)enemyTypes.GetValue(Random.Range(0, enemyTypes.Length))));
                 }
                 isNextWave = false;
                 waiter.InvokeAfterSeconds(() =>

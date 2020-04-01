@@ -7,11 +7,13 @@ public class MoveBackground : MonoBehaviour
     private float x;
     public float PontoDeDestino;
     public float PontoOriginal;
+    private Vector3 position;
 
     // Use this for initialization
     void Start()
     {
         //PontoOriginal = transform.position.x;
+        position = Vector3.zero;
     }
 
     void Update()
@@ -20,12 +22,16 @@ public class MoveBackground : MonoBehaviour
         {
             x = transform.position.x;
             x += speed * Time.deltaTime;
-            transform.position = new Vector3(x, transform.position.y, transform.position.z);
+            position.x = x;
+            position.y = transform.position.y;
+            position.z = transform.position.z;
+            transform.position = position;
 
             if (x <= PontoDeDestino)
             {
                 x = PontoOriginal;
-                transform.position = new Vector3(x, transform.position.y, transform.position.z);
+                position.x = x;
+                transform.position = position;
             }
         }
     }
