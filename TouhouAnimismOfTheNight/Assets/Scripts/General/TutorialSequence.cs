@@ -50,7 +50,7 @@ namespace TH
             {
                 if (tutorialText == null)
                     return;
-                tutorialText.text = "Move near enemy projectiles to get knifes";
+                tutorialText.text = $"Focus using ({ Config.FocusMovementKey }) and move near enemy projectiles to get knifes";
             }, 20);
             waiter.InvokeAfterSeconds(() =>
             {
