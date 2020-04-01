@@ -2,19 +2,22 @@
 using System.Collections;
 using UnityEngine;
 
-public class Waiter : MonoBehaviour
+namespace TH.Utilities
 {
-    public void InvokeAfterSeconds(Action action, float seconds)
+    public class Waiter : MonoBehaviour
     {
-        object[] parms = new object[] { action, seconds };
-        StartCoroutine(nameof(WaitCoroutine), parms);
-    }
+        public void InvokeAfterSeconds(Action action, float seconds)
+        {
+            object[] parms = new object[] { action, seconds };
+            StartCoroutine(nameof(WaitCoroutine), parms);
+        }
 
-    private IEnumerator WaitCoroutine(object[] parms)
-    {
-        Action action = parms[0] as Action;
-        float seconds = (float)parms[1];
-        yield return new WaitForSeconds(seconds);
-        action.Invoke();
+        private IEnumerator WaitCoroutine(object[] parms)
+        {
+            Action action = parms[0] as Action;
+            float seconds = (float)parms[1];
+            yield return new WaitForSeconds(seconds);
+            action.Invoke();
+        }
     }
 }

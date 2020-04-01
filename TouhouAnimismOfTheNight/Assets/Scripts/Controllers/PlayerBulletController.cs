@@ -35,12 +35,12 @@ namespace TH.Controllers
                     Destroy(this.gameObject);
                     return;
                 }
-                rb.velocity = direction * Config.GenericBulletSpeedMultiplier * Time.deltaTime;
+                rb.velocity = direction * Config.GenericBulletSpeedMultiplier * Time.fixedDeltaTime;
                 position = transform.position;
             }
             else
             {
-                rb.velocity = new Vector2(0, 0);
+                rb.velocity = Vector2.zero;
                 transform.position = position;
             }
         }

@@ -8,7 +8,7 @@ namespace TH.Utilities
         public static float SFXVolume = 0.5f;
         public static float MusicVolume = 0.5f;
 
-        public static float GenericMovementMultiplier = 3.5f;
+        public static float GenericMovementMultiplier = 3.2f;
         public static float FocusMovementMultiplier = 0.4f;
         public static float FocusHitboxSize = 0.05f;
         public static Vector2 FocusHitboxSize2D = new Vector2(FocusHitboxSize, FocusHitboxSize);

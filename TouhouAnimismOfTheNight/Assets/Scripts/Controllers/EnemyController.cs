@@ -47,7 +47,7 @@ namespace TH.Controllers
                     movementDirection = 1;
                 }
                 clampedPosition.y = Mathf.Clamp(clampedPosition.y + movementDirection *
-                    Config.GenericEnemyMovementMultiplier * Time.deltaTime,
+                    Config.GenericEnemyMovementMultiplier * Time.fixedDeltaTime,
                     screenBorderDetector.bottomBorder, screenBorderDetector.upperBorder);
                 clampedPosition.x = Mathf.Clamp(clampedPosition.x,
                     screenBorderDetector.leftBorder, screenBorderDetector.rightBorder);

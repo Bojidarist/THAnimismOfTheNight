@@ -64,7 +64,7 @@ namespace TH.Controllers
             }
             else
             {
-                rb.velocity = new Vector2(0, 0);
+                rb.velocity = Vector2.zero;
                 transform.position = lastPosition;
             }
         }
@@ -74,7 +74,7 @@ namespace TH.Controllers
         /// </summary>
         private void NormalShot()
         {
-            rb.velocity = direction * Config.GenericBulletSpeedMultiplier * Time.deltaTime;
+            rb.velocity = direction * Config.GenericBulletSpeedMultiplier * Time.fixedDeltaTime;
             lastPosition = transform.position;
         }
 
@@ -85,7 +85,7 @@ namespace TH.Controllers
         {
             direction.x -= spreadShotOffset;
             direction.y += spreadShotOffset;
-            rb.velocity = direction * Config.GenericBulletSpeedMultiplier * 0.2f * Time.deltaTime;
+            rb.velocity = direction * Config.GenericBulletSpeedMultiplier * 0.2f * Time.fixedDeltaTime;
             lastPosition = transform.position;
         }
     }
