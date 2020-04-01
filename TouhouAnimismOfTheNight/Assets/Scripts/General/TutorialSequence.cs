@@ -50,6 +50,7 @@ namespace TH
             UIManager.Instance.HideKnifesCount();
             UIManager.Instance.HideBombsCount();
             enemySpawnX = borderDetector.rightBorder - Config.EnemyXOffsetFromRightBorder;
+            tutorialText.text = "Use WASD or Arrow Keys to move";
             waiter.InvokeAfterSeconds(() =>
             {
                 if (tutorialText == null)
