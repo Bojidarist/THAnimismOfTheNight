@@ -46,6 +46,11 @@ namespace TH.Controllers
         /// </summary>
         [SerializeField] private bool godMode = false;
 
+        /// <summary>
+        /// Indicates if the player can pause the game
+        /// </summary>
+        [SerializeField] private bool canPause = true;
+
         private void Awake()
         {
             // Initialize
@@ -62,7 +67,10 @@ namespace TH.Controllers
         {
             if (Input.GetKeyDown(Config.PauseKey))
             {
-                GameManager.Instance.PauseGame();
+                if (canPause)
+                {
+                    GameManager.Instance.PauseGame();
+                }
             }
             if (!GameManager.Instance.isPaused)
             {

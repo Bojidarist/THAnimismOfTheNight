@@ -96,14 +96,6 @@ namespace TH
             }, 70);
         }
 
-        private void Update()
-        {
-            if (GameManager.Instance.isPaused)
-            {
-                GameManager.Instance.PauseGame();
-            }
-        }
-
         /// <summary>
         /// Skips the tutorial
         /// </summary>
