@@ -13,5 +13,5 @@ Now evil Youkai across history started appearing. Can she survive the endless wa
 ![Main Menu](ReadmeFiles/Screenshots/thScreenshot.png)
 
 ### In-Game
-![In-Game](ReadmeFiles/Screenshots/thScreenshot2.png)
-![In-Game](ReadmeFiles/Screenshots/thScreenshot3.png)
+![In-Game](ReadmeFiles/Screenshots/th_Screenshot1.png)
+![In-Game](ReadmeFiles/Screenshots/th_Screenshot2.png)
