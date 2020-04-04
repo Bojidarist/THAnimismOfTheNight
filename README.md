@@ -18,8 +18,8 @@ Now evil Youkai across history started appearing. Can she survive the endless wa
 
 ### In-Game
 
-![In-Game](ReadmeFiles/Screenshots/th_Screenshot1.png)
-![In-Game](ReadmeFiles/Screenshots/th_Screenshot2.png)
+![In-Game](ReadmeFiles/Screenshots/th_screenshot1.png)
+![In-Game](ReadmeFiles/Screenshots/th_screenshot2.png)
 
 ## Development Setup
 
